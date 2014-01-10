@@ -1,0 +1,179 @@
+/*Home Tabs*/
+.feature-tabs {
+	margin-bottom: 2em;
+}
+.feature-tab-nav {
+	> li {
+		position: relative;
+		display: block;
+		float: left;
+		width: 33.3333%;
+		text-align: center;
+		border-right: 1px solid darken($tab-gray, 20%);
+		&:last-of-type {
+			border-right: 0;
+		}
+		a {
+			background: $tab-gray;
+			color: #a3a29e;
+			text-transform: lowercase;
+			letter-spacing: 1px;
+			padding: 1em;
+		}
+	}
+	.active {
+		border-right: 0;
+		a {
+			color: #fff;
+		}
+		.radio-tab {
+			background: $radio;
+			&:after {
+				content:'';
+				height: 0;
+				width: 0;
+				border-left: 0.75em solid transparent;
+				border-right: 0.75em solid transparent;
+				border-top: 0.75em solid $radio;
+				position: absolute;
+				bottom: -0.8em;
+				left: 50%;
+				margin-left: -0.75em;
+			}
+		}
+		.family-tab {
+			background: $family;
+			&:after {
+				content:'';
+				height: 0;
+				width: 0;
+				border-left: 0.75em solid transparent;
+				border-right: 0.75em solid transparent;
+				border-top: 0.75em solid $family;
+				position: absolute;
+				bottom: -0.8em;
+				left: 50%;
+				margin-left: -0.75em;
+			}
+		}
+		.church-tab {
+			background: $church;
+			&:after {
+				content:'';
+				height: 0;
+				width: 0;
+				border-left: 0.75em solid transparent;
+				border-right: 0.75em solid transparent;
+				border-top: 0.75em solid $church;
+				position: absolute;
+				bottom: -0.8em;
+				left: 50%;
+				margin-left: -0.75em;
+			}
+		}
+	}
+	[data-icon] {
+		display: block;
+		text-transform: none;
+		font-size: 1.25em;
+		margin-bottom: 0.25em;
+	}
+}
+.tab-column {
+	float: left;
+	width: 33.3333%;
+	padding: 1em 1em 0 0;
+	&.double {
+		width: 66.6666%;
+	}
+	&.image {
+		padding: 0;
+	}
+	&.right-tab {
+		padding: 1em 0 0 1em;
+	}
+}
+.active {
+	&.radio-pane {
+		border-top: 3px solid $radio;
+	}
+	&.family-pane {
+		border-top: 3px solid $family;
+	}
+	&.church-pane {
+		border-top: 3px solid $church;
+	}
+}
+.radio-pane {
+	h1, h2, h3, h4, h5, h6, a {
+		color: $radio;
+	}
+	.button {
+		@include button($radio, #fff);
+	}
+}
+.family-pane {
+	h1, h2, h3, h4, h5, h6, a {
+		color: $family;
+	}
+	.button {
+		@include button($family, #fff);
+	}
+}
+.church-pane {
+	h1, h2, h3, h4, h5, h6, a {
+		color: $church;
+	}
+	.button {
+		@include button($church, #fff);
+	}
+}
+.recent-radio {
+	h4 {
+		color: $gray-text;
+		font-weight: normal;
+		text-transform: lowercase;
+	}
+	h2 {
+		font-family: "adelle",serif;
+		font-weight: normal;
+	}
+}
+.article-preview {
+	img {
+		max-width: 80%;
+	}
+	h3 {
+		font-family: "adelle",serif;
+		font-weight: normal;
+	}
+	p {
+		font-size: 0.875em;
+	}
+	.read-more {
+		color: $gray-text;
+		font-size: 0.875em;
+	}
+}
+.link-list {
+	h5 {
+		margin-top: 0;
+		color: $blue-back;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+	li {
+		border-bottom: 1px solid #ccc;
+	}
+	a {
+		display: block;
+		padding: 1em 0;
+		&:hover {
+			background: transparentize(#ccc, 0.9);
+		}
+	}
+}

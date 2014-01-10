@@ -1,0 +1,87 @@
+@mixin bp($point) {
+     @if $point == 1280 {
+          @media (min-width: 1280px) { @content; }
+     }
+     @if $point == 1080 {
+          @media (min-width: 1080px) { @content; }
+     }
+     @if $point == 800 {
+          @media (min-width: 800px) { @content; }
+     }
+     @if $point == 700 {
+          @media (min-width: 700px) { @content; }
+     }
+     @if $point == 480 {
+          @media (min-width: 480px) { @content; }
+     }
+     @if $point == 400 {
+          @media (min-width: 400px) { @content; }
+     }
+}
+
+/*Clearfix*/
+.group:before,
+.group:after {
+    content:"";
+    display:table;
+}
+.group:after {
+    clear:both;
+}
+.group {
+    zoom:1;
+}
+/*Box-sizing*/
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+/*Responsive Images*/
+img {
+	max-width: 100%;
+}
+.assistive-text {
+     position: absolute;
+     top: -9999px;
+     left: -9999px;
+}
+/* Alignment */
+.alignleft {
+     display: inline;
+     float: left;
+     margin-right: 1.5em;
+}
+.alignright {
+     display: inline;
+     float: right;
+     margin-left: 1.5em;
+}
+.aligncenter {
+     clear: both;
+     display: block;
+     margin: 0 auto;
+}
+
+@mixin button($back-color, $text-color) {
+     display: inline-block;
+     padding: 0.65em 1.5em;
+     font-size: 0.875em;
+     font-weight: bold;
+     text-transform: uppercase;
+     color: $text-color;
+     text-shadow: 1px 1px transparentize(darken($back-color, 17), .55);
+     letter-spacing: 1px;
+     background-color: $back-color;
+     background-image: -webkit-gradient(linear, left top, left bottom, from(lighten($back-color, 15)), to($back-color));
+     background-image: -webkit-linear-gradient(top, lighten($back-color, 15), $back-color);
+     background-image:    -moz-linear-gradient(top, lighten($back-color, 15), $back-color);
+     background-image:      -o-linear-gradient(top, lighten($back-color, 15), $back-color);
+     background-image:         linear-gradient(to bottom, lighten($back-color, 15), $back-color);
+     border: 1px solid adjust_hue(saturate(darken($back-color, 14), 2), 1);
+     border-radius: 0.25em;
+     &:hover {
+          color: $text-color;
+          background: desaturate(lighten($back-color, 0), 2);
+     }
+}

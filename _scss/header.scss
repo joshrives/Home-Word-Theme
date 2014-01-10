@@ -1,0 +1,160 @@
+.site-header {
+	position: relative;
+	z-index: 2;
+}
+.top-header {
+	padding: 1em 0;
+	* {
+		line-height: 1;
+	}
+}
+.toggle-nav {
+	display: none;
+}
+.site-title {
+	float: left;
+	img {
+		max-width: 10em;
+	}
+}
+.header-content {
+	float: right;
+	padding: 0.5em 0;
+}
+.social {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	li {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	a {
+		padding: 0 0.25em;
+		text-decoration: none;
+		color: $blue;
+		font-size: 1.35em;
+		&:hover {
+			color: darken($blue, 10%);
+		}
+	}
+}
+.search-form {
+	position: relative;
+	display: inline-block;
+	font-size: 0.875em;
+	label {
+		span {
+			position: absolute;
+			left: 2.5em;
+			top: 1em;
+			color: $tan;
+			font-size: 0.875em;
+		}
+	}
+}
+.search-field {
+	background: none;
+	border: 1px solid $tan;
+	padding: 0.5em;
+}
+.search-submit {
+	position: absolute;
+	left: 0.5em;
+	top: 0.75em;
+	background: none;
+	border: 0;
+	text-indent: -999px;
+	display: block;
+	width: 0.875em;
+	height: 0.875em;
+	background: url(_i/search.png) center center no-repeat;
+	background-size: 0.8125em;
+}
+.main-navigation {
+	border-top: 1px solid $tan;
+	border-bottom: 0.25em solid $blue-back;
+	background: $light-blue;
+	.btn {
+		float: right;
+		margin-top: 0.5em;
+	}
+	* {
+		line-height: 1;
+	}
+}
+.top-nav {
+	position: relative;
+	display: inline-block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	> li {
+		position: relative;
+		display: inline-block;
+		padding: 1em 0;
+		z-index: 101;
+		> a {
+			display: block;
+			padding: 0 1.5em;
+			border-right: 1px solid $tan;
+			font-family: "adelle",serif;
+			font-size: 1.125em;
+		}
+		&.active {
+			background: #fff;
+			border-right: 1px solid $tan;
+			border-left: 1px solid $tan;
+			a {
+				border: 0;
+				color: $green;
+			}
+		}
+		&.expand {
+			background: #fff;
+			border-right: 1px solid $tan;
+			border-left: 1px solid $tan;
+			a {
+				border: 0;
+			}
+		}
+	}
+	[data-icon] {
+		vertical-align:middle;
+		font-size: 0.75em;
+		position: relative;
+		top: 0.15em;
+	}
+
+}
+.subnav {
+	display: none;
+	li {
+		border-bottom: 1px solid $tan;
+		&:last-of-type {
+			border: 0;
+		}
+	}
+	a {
+		display: block;
+		padding: 0.5em 0;
+
+	}
+}
+.expand {
+	.subnav {
+		display: block;
+		background: #fff;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		z-index: 100;
+		min-width: 115%;
+		list-style: none;
+		margin: 0;
+		padding: 0.5em 1.5em;
+		-webkit-box-shadow: -0.3125em 0.3125em 0.75em 0.05em rgba(0,0,0,0.15);
+        box-shadow: -0.3125em 0.3125em 0.75em 0.05em rgba(0,0,0,0.15);
+	}
+}

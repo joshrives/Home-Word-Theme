@@ -1,0 +1,114 @@
+/*!
+	Theme Name: Home Word
+	Theme URI: http://homeword.com/
+	Author: Cmd Tab
+	Author URI: http://cmdtab.co/
+	Description: Description
+	Version: 1.0
+	License: GNU General Public License
+	License URI: license.txt
+	Text Domain: homeword
+	Domain Path: /languages/
+*/
+@import "normalize";
+@import "bits";
+@import "var";
+
+html,body {
+	overflow-x:hidden;
+}
+body {
+	color: $text;
+	background: url(_i/background.jpg);
+	background-size: 125px;
+	font:
+		1em/1.8
+		"lft-etica","Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+@font-face {
+	font-family: 'Homeword';
+	src:url('_fonts/Homeword.eot');
+	src:url('_fonts/Homeword.eot?#iefix') format('embedded-opentype'),
+		url('_fonts/Homeword.woff') format('woff'),
+		url('_fonts/Homeword.ttf') format('truetype'),
+		url('_fonts/Homeword.svg#Homeword') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+[data-icon]:before {
+	font-family: 'Homeword';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+a {
+	color: $blue;
+	text-decoration: none;
+	&:hover {
+		color: darken($blue, 10%);
+	}
+}
+.btn {
+	@include button(#f7cd23, #fff);
+}
+.btn-gray {
+	@include button(#eee, #292929);
+	text-shadow: none;
+}
+h1,h2,h3,h4,h5,h6 {
+	line-height: 1;
+}
+
+/*Basic Grid*/
+.three-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	> li {
+		display: block;
+		margin-bottom: 1em;
+		float: left;
+		width: 30%;
+		margin: 0 5% 0 0;
+		&:last-child, &:nth-child(3n) {
+			margin: 0;
+		}
+	}
+}
+.wrap {
+	position: relative;
+	width: 100%;
+	max-width: 62.5em;
+	margin: 0 auto;
+}
+.sm-wrap {
+	position: relative;
+	width: 100%;
+	max-width: 45em;
+	margin: 0 auto;
+}
+.site-content {
+	-webkit-box-shadow: 0 0.25em 1.5em 0.5em rgba(0,0,0,0.2);
+	-moz-box-shadow: 0 0.25em 1.5em 0.5em rgba(0,0,0,0.2);
+	box-shadow: 0 0.25em 1.5em 0.5em rgba(0,0,0,0.2);
+}
+.content-wrap {
+	padding: 2em;
+}
+.general-content {
+	background: #fff;
+}
+.full-section {
+	position: relative;
+}
+@import "header";
+@import "carousel";
+@import "newsletter";
+@import "regular-tabs";
+@import "feature-tabs";
+@import "footer";
