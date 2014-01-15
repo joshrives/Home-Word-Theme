@@ -426,8 +426,15 @@ function sidebarHeight() {
 	var mainHeight = jQuery('.content-section').outerHeight();
 	jQuery('.sidebar-section').css('min-height',mainHeight);
 }
+function toggleNav() {
+	jQuery('.toggle-nav').click(function() {
+		jQuery('body').toggleClass('show-nav');
+		return false;
+	});
+}
 
 jQuery(document).ready(function() {
 	navDropdown();
 	sidebarHeight();
+	toggleNav();
 });

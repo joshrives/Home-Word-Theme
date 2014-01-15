@@ -12,23 +12,46 @@
 	}
 }
 .toggle-nav {
-	display: none;
+	font-size: 2em;
+	position: absolute;
+	top: 0.25em;
+	left: 0.25em;
+	z-index: 999;
+	@include bp(44) {
+		display: none;
+	}
 }
 .site-title {
-	float: left;
+	display: block;
+	text-align: center;
+	position: relative;
 	img {
 		max-width: 10em;
 	}
+	@include bp(44) {
+		text-align: left;
+		float: left;
+	}
 }
 .header-content {
-	float: right;
+	position: absolute;
+	left: -100%;
+	width: 80%;
+	top: 0;
 	padding: 0.5em 0;
+	@include bp(44) {
+		float: right;
+		position: static;
+		width: auto;
+	}
 }
 .social {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 	display: inline-block;
+	width: 100%;
+	text-align: center;
 	li {
 		display: inline-block;
 		vertical-align: middle;
@@ -42,11 +65,17 @@
 			color: darken($blue, 10%);
 		}
 	}
+	@include bp(44) {
+		width: auto;
+		text-align: left;
+	}
 }
 .search-form {
 	position: relative;
-	display: inline-block;
+	display: block;
 	font-size: 0.875em;
+	width: 80%;
+	margin: 0 auto;
 	label {
 		span {
 			position: absolute;
@@ -55,6 +84,11 @@
 			color: $tan;
 			font-size: 0.875em;
 		}
+	}
+	@include bp(44) {
+		display: inline-block;
+		width: auto;
+		margin: 0;
 	}
 }
 .search-field {
@@ -76,37 +110,55 @@
 	background-size: 0.8125em;
 }
 .main-navigation {
+	position: absolute;
+	left: -100%;
+	width: 80%;
+	top: 6em;
 	border-top: 1px solid $tan;
-	border-bottom: 0.25em solid $blue-back;
 	background: $light-blue;
 	.btn {
-		float: right;
-		margin: 0.5em 1em 0 0;
-		@include bp(62.5) {
-			margin: 0.5em 0 0;
-		}
+		display: block;
+		border-radius: 0;
+		padding: 1em;
+		border: 0;
+		border-bottom: 1px solid adjust_hue(saturate(darken(#f7cd23, 14), 2), 1);
 	}
 	* {
 		line-height: 1;
 	}
+	@include bp(44) {
+		position: static;
+		width: 100%;
+		border-bottom: 0.25em solid $blue-back;
+		.btn {
+			float: right;
+			display: inline-block;
+			margin: 0.5em 1em 0 0;
+			@include button(#f7cd23, #fff);
+		}
+	}
+	@include bp(62.5) {
+		.btn {
+			margin: 0.5em 0 0;
+		}
+	}
 }
 .top-nav {
 	position: relative;
-	display: inline-block;
+	display: block;
 	list-style: none;
 	margin: 0;
 	padding: 0;
 	> li {
 		position: relative;
-		display: inline-block;
-		padding: 1em 0;
+		display: block;
 		z-index: 101;
 		> a {
 			display: block;
-			padding: 0 1.5em;
-			border-right: 1px solid $tan;
+			padding: 1em;
 			font-family: "adelle",serif;
 			font-size: 1.125em;
+			border-bottom: 1px solid $tan;
 		}
 		&.active {
 			background: #fff;
@@ -143,6 +195,18 @@
 		position: relative;
 		top: 0.15em;
 	}
+	@include bp(44) {
+		display: inline-block;
+		> li {
+			display: inline-block;
+			padding: 1em 0;
+			> a {
+				padding: 0 1.5em;
+				border: 0;
+				border-right: 1px solid $tan;
+			}
+		}
+	}
 }
 .subnav {
 	display: none;
@@ -154,23 +218,72 @@
 	}
 	a {
 		display: block;
-		padding: 0.5em 0;
+		padding: 1em 0;
 		font-family: "adelle",serif;
+	}
+	@include bp(44) {
+		padding: 0.5em 0;
 	}
 }
 .expand {
 	.subnav {
 		display: block;
 		background: #fff;
-		position: absolute;
-		top: 100%;
-		left: 0;
-		z-index: 100;
-		min-width: 115%;
 		list-style: none;
 		margin: 0;
 		padding: 0.5em 1.5em;
-		-webkit-box-shadow: -0.3125em 0.3125em 0.75em 0.05em rgba(0,0,0,0.15);
-        box-shadow: -0.3125em 0.3125em 0.75em 0.05em rgba(0,0,0,0.15);
+		border-bottom: 1px solid $tan;
+	}
+	@include bp(44) {
+		.subnav {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			z-index: 100;
+			min-width: 115%;
+			-webkit-box-shadow: -0.3125em 0.3125em 0.75em 0.05em rgba(0,0,0,0.15);
+	        box-shadow: -0.3125em 0.3125em 0.75em 0.05em rgba(0,0,0,0.15);
+	    }
+	}
+}
+.site-content,
+.site-title,
+.toggle-nav,
+.header-content,
+.main-navigation {
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+.site-content,
+.site-title {
+	left: 0;
+}
+.show-nav {
+	.site-content {
+		left: 80%;
+	}
+	.site-title {
+		left: 80%;
+	}
+	.toggle-nav {
+		left: 85%;
+	}
+	.header-content {
+		left: 0;
+	}
+	.main-navigation {
+		left: 0;
+	}
+	@include bp(44) {
+		.site-content,
+		.site-title,
+		.toggle-nav,
+		.header-content,
+		.main-navigation {
+			left: auto;
+		}
 	}
 }
