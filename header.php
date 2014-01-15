@@ -71,7 +71,7 @@
 		<nav id="site-navigation" class="full-section main-navigation" role="navigation">
 			<div class="wrap group">
 				<ul class="top-nav">
-					<li class="with-sub">
+					<li class="with-sub family-nav">
 						<a href = "#">
 							for Families
 							<span aria-hidden="true" data-icon="&#x75;"></span>
@@ -88,7 +88,7 @@
 							</li>
 						</ul>
 					</li><!--
-					--><li class="with-sub">
+					--><li class="with-sub church-nav">
 						<a href = "#">
 							for Church Leaders
 							<span aria-hidden="true" data-icon="&#x75;"></span>

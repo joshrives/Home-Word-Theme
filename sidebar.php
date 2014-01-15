@@ -5,29 +5,25 @@
  * @package Home Word
  */
 ?>
-	<div id="secondary" class="widget-area" role="complementary">
-		<?php do_action( 'before_sidebar' ); ?>
-		<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>
+	<aside class="sidebar-section">
+		<ul class="sidebar-nav">
+			<li class="current-menu-item">
+				<a href = "#">Families Overview</a>
+			</li>
+			<li>
+				<a href = "#">Articles & Media</a>
+			</li>
+			<li>
+				<a href = "#">Culture Blog</a>
+			</li>
+			<li>
+				<a href = "#">Devotionals</a>
+			</li>
+			<li>
+				<a href = "#">Upcoming Events</a>
+			</li>
+		</ul>
+		<div class="sidebar-content">
 
-			<aside id="search" class="widget widget_search">
-				<?php get_search_form(); ?>
-			</aside>
-
-			<aside id="archives" class="widget">
-				<h1 class="widget-title"><?php _e( 'Archives', 'homeword' ); ?></h1>
-				<ul>
-					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
-				</ul>
-			</aside>
-
-			<aside id="meta" class="widget">
-				<h1 class="widget-title"><?php _e( 'Meta', 'homeword' ); ?></h1>
-				<ul>
-					<?php wp_register(); ?>
-					<li><?php wp_loginout(); ?></li>
-					<?php wp_meta(); ?>
-				</ul>
-			</aside>
-
-		<?php endif; // end sidebar widget area ?>
-	</div><!-- #secondary -->
+		</div>
+	</aside>

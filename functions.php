@@ -46,7 +46,8 @@ function homeword_setup() {
 	) );
 
 	// Enable support for Post Formats.
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
+	//add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
+	add_theme_support( 'post-thumbnails' );
 
 	// Setup the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'homeword_custom_background_args', array(
@@ -112,3 +113,93 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+/*Custom Taxonomy*/
+add_action( 'init', 'create_tax' );
+function create_tax() {
+	register_taxonomy(
+		'area',
+		array('post', 'articles', 'devotionals'),
+		array(
+			'label' => __( 'Area' ),
+			'rewrite' => array( 'slug' => 'area' ),
+			'hierarchical' => true,
+		)
+	);
+}
+/*Custom Post Types*/
+function create_post_type() {
+	$articleArgs = array(
+		'label'  => 'Articles',
+		'labels' => array(
+			'singular_name' => 'Article'
+			),
+		'public' => true,
+		'has_archive' => true,
+		'menu_position' => 5,
+		'taxonomies' => array('category', 'area'),
+		'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'comments', 'revisions')
+	);
+	register_post_type( 'articles', $articleArgs );
+	$devotionArgs = array(
+		'label'  => 'Devotionals',
+		'labels' => array(
+			'singular_name' => 'Devotion'
+			),
+		'public' => true,
+		'has_archive' => true,
+		'menu_position' => 5,
+		'taxonomies' => array('category', 'area'),
+		'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'comments', 'revisions')
+	);
+	register_post_type( 'devotionals', $devotionArgs );
+	$sliderArgs = array(
+		'label'  => 'Sliders',
+		'labels' => array(
+			'singular_name' => 'Slider'
+			),
+		'public' => true,
+		'has_archive' => true,
+		'menu_position' => 5,
+		'supports' => array('title', 'editor', 'revisions')
+	);
+	register_post_type( 'sliders', $sliderArgs );
+}
+add_action( 'init', 'create_post_type' );
+/*Rename Posts*/
+function change_post_menu_label() {
+    global $menu;
+    $menu[5][0] = 'Culture Blog';
+}
+add_action( 'admin_menu', 'change_post_menu_label' );
+/*Remove Tags*/
+function remove_tags() {
+	remove_meta_box( 'tagsdiv-post_tag', 'post', 'normal' );
+	remove_meta_box( 'postcustom', 'post', 'normal' );
+	remove_meta_box( 'formatdiv', 'post', 'normal' );
+}
+add_action( 'admin_menu', 'remove_tags' );
+/*Excerpt*/
+function custom_excerpt_length( $length ) {
+	return 25;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+function new_excerpt_more( $more ) {
+	return '...';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+remove_filter( 'the_excerpt', 'wpautop' );
+/*WooCommerce*/
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+
+add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
+add_action('woocommerce_after_main_content', 'my_theme_wrapper_end', 10);
+
+function my_theme_wrapper_start() {
+  echo '<div class="general-content">';
+}
+
+function my_theme_wrapper_end() {
+  echo '</div>';
+}
+add_theme_support( 'woocommerce' );

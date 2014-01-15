@@ -12,67 +12,21 @@
 
 get_header(); ?>
 
-			<?php while ( have_posts() ) : the_post(); ?>
-				<div id="carousel-home" class="carousel slide" data-ride="carousel">
-					<!-- Wrapper for slides -->
-					<div class="carousel-inner">
-						<div class="item active">
-							<a href = "#" class="slide-link">
-								<img src = "<?php bloginfo('template_directory'); ?>/_i/banner5.jpg">
-							</a>
-							<div class="carousel-caption">
-							    <h1>Slide Heading #1</h1>
-							    <p>This is the subheading which is typically a little longer.</p>
-							    <a href = "#" class="carousel-action">Learn More</a>
-							</div>
-						</div>
-						<div class="item">
-							<a href = "#" class="slide-link">
-								<img src = "<?php bloginfo('template_directory'); ?>/_i/banner6.jpg">
-							</a>
-							<div class="carousel-caption">
-							    <h1>Slide Heading #2</h1>
-							    <p>This is the subheading which is typically a little longer.</p>
-							    <a href = "#" class="carousel-action">Learn More</a>
-							</div>
-						</div>
-						<div class="item">
-							<a href = "#" class="slide-link">
-								<img src = "<?php bloginfo('template_directory'); ?>/_i/banner4.jpg">
-							</a>
-							<div class="carousel-caption">
-							    <h1>Slide Heading #3</h1>
-							    <p>This is the subheading which is typically a little longer.</p>
-							    <a href = "#" class="carousel-action">Learn More</a>
-							</div>
-						</div>
-					</div>
-
-					<!-- Controls -->
-					<a class="left carousel-control" href="#carousel-home" data-slide="prev">
-					<span aria-hidden="true" data-icon="&#x6c;"></span>
-					</a>
-					<a class="right carousel-control" href="#carousel-home" data-slide="next">
-					<span aria-hidden="true" data-icon="&#x72;"></span>
-					</a>
-				</div>
-				<div class="newsletter-signup full-section">
-					<div class = "content-wrap group">
-						<span aria-hidden="true" data-icon="&#x4e;"></span>
-						<h1>Do you want to keep in touch? We thought so.</h1>
-						<p>Subscribe to our Newsletter to hear about upcoming events, special offers, and more!</p>
-						<div class="sm-wrap">
-							<?php mc4wp_form(); ?>
-						</div>
-					</div>
-				</div>
+				<?php
+					$displaySlider = get_field('display_slider');
+					if ($displaySlider == 'Yes'){
+						get_template_part( 'content', 'slider' );
+						wp_reset_postdata();
+					}
+				?>
+				<?php get_template_part( 'content', 'newsletter' ); ?>
 				<div class="content-wrap general-content">
 					<div class="feature-tabs group">
 						<ul class="nav nav-tabs feature-tab-nav">
 							<li class="active">
 								<a href="#radio" data-toggle="tab" class="radio-tab">
 									<span aria-hidden="true" data-icon="&#x52;"></span>
-									Recent Radio Show
+									Radio Broadcast
 								</a>
 							</li>
 							<li>
@@ -92,7 +46,9 @@ get_header(); ?>
 						<div class="tab-content feature-tab-content">
 							<div class="tab-pane radio-pane active" id="radio">
 								<div class="tab-column image">
-									<img src = "<?php bloginfo('template_directory'); ?>/_i/radio-image.jpg">
+									<a href = "#">
+										<img src = "<?php bloginfo('template_directory'); ?>/_i/radio-image.jpg">
+									</a>
 								</div>
 								<div class="tab-column double right-tab recent-radio">
 									<h4>december 29, 2013</h4>
@@ -103,13 +59,28 @@ get_header(); ?>
 							</div>
 							<div class="tab-pane family-pane" id="family">
 								<div class="tab-column article-preview">
-									<img src = "<?php bloginfo('template_directory'); ?>/_i/article-thumb.jpg">
-									<h3>Article Title</h3>
-									<p>In non velit elementum, varius erat sit amet, vulputate enim. Quisque id ligula massa. Vivamus elit lectus, condimentum non commodo eget, tristique ac dolor</p>
-									<a href = "#" class="read-more">Continue Reading...</a>
+<?php
+	$args = array( 'post_type' => 'articles', 'posts_per_page' => 1, 'area' => 'families');
+	$loop = new WP_Query( $args );
+	while ( $loop->have_posts() ) : $loop->the_post();
+?>
+									<a href = "<?php the_permalink(); ?>">
+										<?php
+											if ( has_post_thumbnail() ) {
+												the_post_thumbnail();
+											}
+
+										?>
+									</a>
+									<h3><?php the_title(); ?></h3>
+									<p><?php the_excerpt(); ?></p>
+									<a href = "<?php the_permalink(); ?>" class="read-more">Continue Reading &raquo;</a>
+<?php endwhile; ?>
 								</div>
 								<div class="tab-column image">
-									<img src = "<?php bloginfo('template_directory'); ?>/_i/family-image.jpg">
+									<a href = "#">
+										<img src = "<?php bloginfo('template_directory'); ?>/_i/family-image.jpg">
+									</a>
 								</div>
 								<div class="tab-column right-tab link-list">
 									<h5>Family Resources Library:</h5>
@@ -132,13 +103,28 @@ get_header(); ?>
 									</ul>
 								</div>
 								<div class="tab-column article-preview">
-									<img src = "<?php bloginfo('template_directory'); ?>/_i/article-thumb.jpg">
-									<h3>Article Title</h3>
-									<p>In non velit elementum, varius erat sit amet, vulputate enim. Quisque id ligula massa. Vivamus elit lectus, condimentum non commodo eget, tristique ac dolor</p>
-									<a href = "#" class="read-more">Continue Reading...</a>
+<?php
+	$args = array( 'post_type' => 'articles', 'posts_per_page' => 1, 'area' => 'church-leaders');
+	$loop = new WP_Query( $args );
+	while ( $loop->have_posts() ) : $loop->the_post();
+?>
+									<a href = "<?php the_permalink(); ?>">
+										<?php
+											if ( has_post_thumbnail() ) {
+												the_post_thumbnail();
+											}
+
+										?>
+									</a>
+									<h3><?php the_title(); ?></h3>
+									<p><?php the_excerpt(); ?></p>
+									<a href = "<?php the_permalink(); ?>" class="read-more">Continue Reading &raquo;</a>
+<?php endwhile; ?>
 								</div>
 								<div class="tab-column image">
-									<img src = "<?php bloginfo('template_directory'); ?>/_i/church-image.jpg">
+									<a href = "#">
+										<img src = "<?php bloginfo('template_directory'); ?>/_i/church-image.jpg">
+									</a>
 								</div>
 							</div>
 						</div>
@@ -207,6 +193,5 @@ get_header(); ?>
 						</div>
 					</div>
 				</div><!--general-content-->
-			<?php endwhile; // end of the loop. ?>
 
 <?php get_footer(); ?>

@@ -79,6 +79,24 @@
 		margin-bottom: 0.25em;
 	}
 }
+.radio-tab {
+	&:hover {
+		background: $radio;
+		color: #fff;
+	}
+}
+.family-tab {
+	&:hover {
+		background: $family;
+		color: #fff;
+	}
+}
+.church-tab {
+	&:hover {
+		background: $church;
+		color: #fff;
+	}
+}
 .tab-column {
 	float: left;
 	width: 33.3333%;
@@ -172,6 +190,7 @@
 	a {
 		display: block;
 		padding: 1em 0;
+		font-family: "adelle",serif;
 		&:hover {
 			background: transparentize(#ccc, 0.9);
 		}

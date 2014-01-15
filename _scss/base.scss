@@ -66,21 +66,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 /*Basic Grid*/
-.three-list {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	> li {
-		display: block;
-		margin-bottom: 1em;
-		float: left;
-		width: 30%;
-		margin: 0 5% 0 0;
-		&:last-child, &:nth-child(3n) {
-			margin: 0;
-		}
-	}
-}
+
 .wrap {
 	position: relative;
 	width: 100%;
@@ -107,9 +93,43 @@ h1,h2,h3,h4,h5,h6 {
 .full-section {
 	position: relative;
 }
+.half {
+	margin-bottom: 2em;
+	@include bp(44) {
+		float: left;
+		width: 47.5%;
+		margin-bottom: 0;
+		&.first {
+			margin-right: 5%;
+		}
+	}
+}
+.three-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	> li {
+		display: block;
+		margin-bottom: 1em;
+		float: left;
+		width: 30%;
+		margin: 0 5% 0 0;
+		&:last-child, &:nth-child(3n) {
+			margin: 0;
+		}
+	}
+}
+.content-section {
+	float: left;
+	width: 42em;
+	padding: 2em;
+}
+
 @import "header";
 @import "carousel";
 @import "newsletter";
 @import "regular-tabs";
 @import "feature-tabs";
 @import "footer";
+@import "area-pages";
+@import "sidebar";

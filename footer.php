@@ -100,7 +100,34 @@
 						</ul>
 					</li>
 				</ul>
-			</div><!-- .site-info -->
+			</div><!-- .content-wrap -->
+			<div class="bottom-footer">
+				<div class="content-wrap group">
+					<ul>
+						<li>
+							<a href = "#">Home</a>
+						</li>
+						<li>
+							<a href = "#">Families</a>
+						</li>
+						<li>
+							<a href = "#">Church Leaders</a>
+						</li>
+						<li>
+							<a href = "#">About</a>
+						</li>
+						<li>
+							<a href = "#">Store</a>
+						</li>
+						<li>
+							<a href = "#">Donate</a>
+						</li>
+					</ul>
+					<div class="copyright">
+						Copyright &copy; <?php echo date("Y"); ?> HomeWord. All Rights Reserved.
+					</div>
+				</div>
+			</div>
 		</footer><!-- #colophon -->
 	</div><!-- site-content -->
 </div><!--site-->

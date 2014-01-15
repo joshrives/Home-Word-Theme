@@ -1,0 +1,59 @@
+.families-content {
+	border-top: 2px solid $family;
+	h1, h3 {
+		color: $family;
+	}
+	.current-menu-item {
+		a {
+			color: $family;
+		}
+	}
+}
+.church-content {
+	border-top: 2px solid $church;
+	h1, h3 {
+		color: $church;
+	}
+	.current-menu-item {
+		a {
+			color: $church;
+		}
+	}
+}
+.content-section {
+	h1 {
+		font-family: "adelle",serif;
+		font-weight: normal;
+		&:first-of-type {
+			margin-top: 0;
+		}
+	}
+	h3 {
+		font-family: "adelle",serif;
+		margin-bottom: 0.25em;
+	}
+	h5 {
+		color: #bbb;
+		text-transform: uppercase;
+		margin-top: 0;
+	}
+}
+.section-intro {
+	margin-bottom: 2em;
+}
+.metadata {
+	font-size: 0.75em;
+	text-transform: uppercase;
+}
+.entry-excerpt {
+	padding: 1.5em 0;
+	p {
+		font-size: 0.875em;
+	}
+}
+.devo-excerpt {
+	border-bottom: 1px solid #ccc;
+}
+.excerpt-group {
+	border-bottom: 1px solid #ccc;
+}

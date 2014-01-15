@@ -49,6 +49,23 @@
 		left: 100%;
 	}
 }
+.item {
+	&:before {
+		content:'';
+		position: absolute;
+		top: 40%;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		display: block;
+		background-image: -webkit-gradient(linear, left bottom, left top, from(#edebe8), to(transparent));
+		background-image: -webkit-linear-gradient(bottom, #edebe8, transparent);
+		background-image:    -moz-linear-gradient(bottom, #edebe8, transparent);
+		background-image:      -o-linear-gradient(bottom, #edebe8, transparent);
+		background-image:         linear-gradient(to top, #edebe8, transparent);
+	}
+}
 
 .carousel-control {
 	position: absolute;
@@ -121,17 +138,25 @@
 	left: 2em;
 	bottom: 2em;
 	z-index: 10;
-	color: #fff;
 	h1 {
 		margin: 0 0 0.25em;
+		color: #292929;
 	}
 	p {
 		margin: 0 0 1em;
 		font-size: 1.125em;
+		color: #525252;
 	}
 }
-.carousel-action {
+
+.home .carousel-action {
 	@include button(#79bd35, #fff);
+}
+.family .carousel-action {
+	@include button($family, #fff);
+}
+.church .carousel-action {
+	@include button($church, #fff);
 }
 
 @media screen and (min-width: 768px) {
