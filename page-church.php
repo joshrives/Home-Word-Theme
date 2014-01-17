@@ -33,7 +33,7 @@ get_header(); ?>
 	$loop = new WP_Query( $args );
 	while ( $loop->have_posts() ) : $loop->the_post();
 ?>
-							<a href = "<?php the_permalink(); ?>">
+							<a href = "<?php the_permalink(); ?>?cat=church">
 								<?php
 									if ( has_post_thumbnail() ) {
 										the_post_thumbnail();
@@ -44,7 +44,7 @@ get_header(); ?>
 							<h3><?php the_title(); ?></h3>
 							<div class="metadata">Published <?php the_date(); ?> by <?php the_author(); ?></div>
 							<p><?php the_excerpt(); ?></p>
-							<a href = "<?php the_permalink(); ?>" class="read-more">Continue Reading &raquo;</a>
+							<a href = "<?php the_permalink(); ?>?cat=church" class="read-more">Continue Reading &raquo;</a>
 <?php endwhile; ?>
 						</div>
 						<div class="excerpt-group group">
@@ -55,7 +55,7 @@ get_header(); ?>
 	$loop = new WP_Query( $args );
 	while ( $loop->have_posts() ) : $loop->the_post();
 ?>
-								<a href = "<?php the_permalink(); ?>">
+								<a href = "<?php the_permalink(); ?>?cat=church">
 									<?php
 										if ( has_post_thumbnail() ) {
 											the_post_thumbnail();
@@ -66,7 +66,7 @@ get_header(); ?>
 								<h3><?php the_title(); ?></h3>
 								<div class="metadata">Published <?php the_date(); ?> by <?php the_author(); ?></div>
 								<p><?php the_excerpt(); ?></p>
-								<a href = "<?php the_permalink(); ?>" class="read-more">Continue Reading &raquo;</a>
+								<a href = "<?php the_permalink(); ?>?cat=church" class="read-more">Continue Reading &raquo;</a>
 <?php endwhile; ?>
 							</div>
 							<div class="entry-excerpt half">
@@ -76,7 +76,7 @@ get_header(); ?>
 	$loop = new WP_Query( $args );
 	while ( $loop->have_posts() ) : $loop->the_post();
 ?>
-								<a href = "<?php the_permalink(); ?>">
+								<a href = "<?php the_permalink(); ?>?cat=church">
 									<?php
 										if ( has_post_thumbnail() ) {
 											the_post_thumbnail();
@@ -87,7 +87,7 @@ get_header(); ?>
 								<h3><?php the_title(); ?></h3>
 								<div class="metadata">Published <?php the_date(); ?> by <?php the_author(); ?></div>
 								<p><?php the_excerpt(); ?></p>
-								<a href = "<?php the_permalink(); ?>" class="read-more">Continue Reading &raquo;</a>
+								<a href = "<?php the_permalink(); ?>?cat=church" class="read-more">Continue Reading &raquo;</a>
 <?php endwhile; ?>
 							</div>
 						</div><!--excerpt-group-->

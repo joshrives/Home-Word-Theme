@@ -1,0 +1,134 @@
+.content-section.single {
+	padding: 2em 0;
+}
+.families-content {
+	.entry-footer {
+		border-color: $family;
+	}
+	.entry-meta {
+		a {
+			color: $family;
+		}
+	}
+}
+.church-content {
+	.entry-footer {
+		border-color: $church;
+	}
+	.entry-meta {
+		a {
+			color: $church;
+		}
+	}
+}
+.entry-title {
+	font-size: 2.5em;
+	color: $black;
+	margin-bottom: 0.5em;
+}
+.entry-header {
+	font-family: "adelle",serif;
+	padding: 0 2em;
+}
+.entry-author {
+	font-size: 1.125em;
+	margin-bottom: 0.25em;
+	a {
+		font-weight: bold;
+	}
+}
+.entry-cats {
+	font-size: 0.875em;
+	border-top: 2px solid #ddd;
+	padding: 0.5em 0 1em;
+	font-style: italic;
+}
+.edit-link {
+	float: right;
+}
+.caption {
+	font-size: 0.875em;
+	color: #bbb;
+	font-style: italic;
+}
+/*Content Defaults*/
+.entry-content {
+	padding: 0 2em;
+	h1, h2, h3, h4, h5, h6 {
+		font-family: "lft-etica","Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-weight: bold;
+		color: $black;
+		text-transform: uppercase;
+	}
+	h1 {
+		font-size: 1.25em;
+	}
+	h2, h3, h4, h5, h6 {
+		font-size: 1em;
+	}
+	em {
+		font-family: "adelle",serif;
+		font-style: italic;
+	}
+	blockquote {
+		font-family: "adelle",serif;
+		font-size: 1.25em;
+		color: lighten($black, 25%);
+		position: relative;
+		text-align: center;
+		&:before {
+			content: '\275d';
+			position: absolute;
+			left: -1em;
+			top: 0;
+			color: lighten($tan, 15%);
+			font-size: 2.5em;
+		}
+		&:after {
+			content: '\275e';
+			position: absolute;
+			right: -1em;
+			top: 0;
+			color: lighten($tan, 15%);
+			font-size: 2.5em;
+		}
+	}
+}
+.entry-social {
+	padding: 2em;
+}
+.social-buttons {
+	float: left;
+}
+.to-top {
+	float: right;
+	color: #aaa;
+	font-size: 0.875em;
+	span {
+		font-size: 0.5em;
+		margin-right: 1em;
+		position: relative;
+		top: -0.25em;
+	}
+}
+.entry-footer {
+	padding: 2em;
+	border-top: 0.25em solid $blue;
+	img {
+		float: left;
+		width: 20%;
+		margin-right: 5%;
+	}
+	.author-info {
+		float: left;
+		width: 75%;
+		margin: 0;
+	}
+	h4 {
+		margin: 0 0 0.5em;
+		font-family: "adelle",serif;
+	}
+	p {
+		margin: 0;
+	}
+}

@@ -3,29 +3,35 @@
 	color: #fff;
 	text-align: center;
 	[data-icon] {
-		background: $blue-back;
 		color: $newsletter-blue;
 		border-radius: 50%;
 		padding: 0 0.5em;
-		font-size: 2.75em;
+		font-size: 2.5em;
 		position: absolute;
-		top: -0.75em;
+		top: -0.25em;
 		left: 50%;
-		margin-left: -1.375em;
+		margin-left: -0.75em;
 	}
 	h1 {
 		font-weight: normal;
 		margin: 0.5em 0 0;
+		font-size: 1.75em;
 	}
 	p {
 		color: $newsletter-blue;
 		margin: 0.25em 0 1em;
 	}
+	@include bp(44) {
+		[data-icon] {
+			background: $blue-back;
+			position: absolute;
+			top: -0.75em;
+			font-size: 2.75em;
+		}
+	}
 }
 .field {
-	float: left;
-	width: 26%;
-	margin-right: 2%;
+	margin-bottom: 1em;
 	font-size: 0.8125em;
 	position: relative;
 	label {
@@ -40,13 +46,24 @@
 		padding: 0.75em 0.5em;
 		border: 1px solid #bbb;
 	}
+	@include bp(44) {
+		float: left;
+		width: 26%;
+		margin-right: 2%;
+		margin-bottom: 0;
+	}
 }
 .mc4wp-form {
 	input[type="submit"] {
 		@include button(#eee, #292929);
 		text-shadow: none;
 		display: block;
-		float: left;
-		width: 16%;
+		width: 100%;
+	}
+	@include bp(44) {
+		input[type="submit"] {
+			float: left;
+			width: 16%;
+		}
 	}
 }

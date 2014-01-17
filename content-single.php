@@ -7,13 +7,31 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<h1 class="entry-title"><?php the_title(); ?></h1>
-
 		<div class="entry-meta">
-			<?php homeword_posted_on(); ?>
+			<div class="entry-author">
+				by <a href = "<?php the_author_link(); ?>"><?php the_author(); ?></a> &middot; <?php the_date(); ?>
+						<?php edit_post_link( __( 'Edit', 'homeword' ), '<span class="edit-link">', '</span>' ); ?>
+
+			</div>
+			<div class="entry-cats">
+				Published in
+<?php
+	echo get_the_term_list( $post->ID, 'area', '', ', ', ', ' );
+	echo get_the_term_list( $post->ID, 'category', '', ', ', '' );
+?>
+			</div>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
+		<?php
+			if ( has_post_thumbnail() ) {
+				the_post_thumbnail();
+				echo '<div class="caption">';
+				echo get_post(get_post_thumbnail_id())->post_excerpt;
+				echo '</div>';
+			}
+		?>
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(
@@ -22,41 +40,28 @@
 			) );
 		?>
 	</div><!-- .entry-content -->
+	<div class="entry-social group">
+		<div class="social-buttons">
+			<!-- AddThis Button BEGIN -->
+			<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+			<a class="addthis_button_facebook"></a>
+			<a class="addthis_button_twitter"></a>
+			<a class="addthis_button_email"></a>
+			<a class="addthis_button_print"></a>
+			<a class="addthis_button_compact"></a><a class="addthis_counter addthis_bubble_style"></a>
+			</div>
+			<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-52d814ff54066ddf"></script>
+			<!-- AddThis Button END -->
+		</div>
+		<a href = "#post-<?php the_ID(); ?>" class="to-top"><span>&uarr;</span>Back to Top</a>
 
-	<footer class="entry-meta">
-		<?php
-			/* translators: used between list items, there is a space after the comma */
-			$category_list = get_the_category_list( __( ', ', 'homeword' ) );
+	</div>
+	<footer class="entry-footer group">
+		<?php echo get_avatar(get_the_author_meta('ID'), 240); ?>
+		<div class="author-info">
+			<h4><?php the_author_meta('display_name'); ?></h4>
+			<p><?php the_author_meta('description'); ?></p>
+		</div>
 
-			/* translators: used between list items, there is a space after the comma */
-			$tag_list = get_the_tag_list( '', __( ', ', 'homeword' ) );
-
-			if ( ! homeword_categorized_blog() ) {
-				// This blog only has 1 category so we just need to worry about tags in the meta text
-				if ( '' != $tag_list ) {
-					$meta_text = __( 'This entry was tagged %2$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'homeword' );
-				} else {
-					$meta_text = __( 'Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'homeword' );
-				}
-
-			} else {
-				// But this blog has loads of categories so we should probably display them here
-				if ( '' != $tag_list ) {
-					$meta_text = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'homeword' );
-				} else {
-					$meta_text = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'homeword' );
-				}
-
-			} // end check for categories on this blog
-
-			printf(
-				$meta_text,
-				$category_list,
-				$tag_list,
-				get_permalink()
-			);
-		?>
-
-		<?php edit_post_link( __( 'Edit', 'homeword' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-meta -->
 </article><!-- #post-## -->

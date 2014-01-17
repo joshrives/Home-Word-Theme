@@ -1,0 +1,41 @@
+.content-section.archive {
+	padding: 2em 0;
+}
+.archive article {
+	padding: 2em 0;
+	border-bottom: 0.25em solid $blue;
+	&:first-of-type {
+		padding-top: 0;
+	}
+	&:last-of-type {
+		border: 0;
+	}
+}
+.archive-title {
+	padding: 0 2em;
+}
+.archive-more {
+	@include button($blue, #fff);
+}
+.families-content {
+	.archive article {
+		border-bottom: 0.25em solid $family;
+		&:last-of-type {
+			border: 0;
+		}
+	}
+	.archive-more {
+		@include button($family, #fff);
+	}
+}
+.church-content {
+	.archive article {
+		border-bottom: 0.25em solid $church;
+		&:last-of-type {
+			border: 0;
+		}
+	}
+	.archive-more {
+		@include button($church, #fff);
+	}
+}

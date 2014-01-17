@@ -23,8 +23,11 @@ body {
 	background: url(_i/background.jpg);
 	background-size: 125px;
 	font:
-		1em/1.8
+		0.875em/1.8
 		"lft-etica","Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	@include bp(44) {
+		font-size: 1em;
+	}
 }
 @font-face {
 	font-family: 'Homeword';
@@ -133,3 +136,5 @@ h1,h2,h3,h4,h5,h6 {
 @import "footer";
 @import "area-pages";
 @import "sidebar";
+@import "article";
+@import "archives";

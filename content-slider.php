@@ -25,10 +25,10 @@
 			echo '<a href = "' .$row['slide_url']. '" class="slide-link">';
 			echo '<img src = "' .$row['slide_image']. '"></a>';
 			echo '<div class="carousel-caption">';
-			echo '<h1>' . $row['slide_title'] . '</h1>';
+			echo '<div><h1>' . $row['slide_title'] . '</h1>';
 			echo '<p>' . $row['slide_subtitle'] . '</p>';
 			echo '<a href = "' .$row['slide_url']. '" class="carousel-action">' . $row['slide_button'] . '</a>';
-			echo '</div>';
+			echo '</div></div>';
 			echo '</div>';
 			$i++;
 		}

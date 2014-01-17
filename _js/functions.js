@@ -12,7 +12,7 @@ function navDropdown() {
 	});
 }
 function sidebarHeight() {
-	var mainHeight = jQuery('.content-section').outerHeight();
+	var mainHeight = jQuery('.content-section').outerHeight() + 7;
 	jQuery('.sidebar-section').css('min-height',mainHeight);
 }
 function toggleNav() {
@@ -20,10 +20,15 @@ function toggleNav() {
 		jQuery('body').toggleClass('show-nav');
 		return false;
 	});
+
 }
 
 jQuery(document).ready(function() {
 	navDropdown();
 	sidebarHeight();
 	toggleNav();
+});
+
+$(window).resize(function() {
+	jQuery('body').removeClass('show-nav');
 });

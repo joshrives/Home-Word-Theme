@@ -53,7 +53,7 @@ function homeword_post_nav() {
 	}
 	?>
 	<nav class="navigation post-navigation" role="navigation">
-		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'homeword' ); ?></h1>
+		<h1 class="assistive-text"><?php _e( 'Post navigation', 'homeword' ); ?></h1>
 		<div class="nav-links">
 
 			<?php previous_post_link( '%link', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'homeword' ) ); ?>

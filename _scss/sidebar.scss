@@ -24,9 +24,12 @@
 		}
 	}
 	.current-menu-item {
-		a:before {
-			content: '\27A4';
-			margin-right: 0.5em;
+		a {
+			color: $blue;
+			&:before {
+				content: '\27A4';
+				margin-right: 0.5em;
+			}
 		}
 	}
 }

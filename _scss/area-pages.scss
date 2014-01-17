@@ -1,22 +1,20 @@
 .families-content {
-	border-top: 2px solid $family;
 	h1, h3 {
 		color: $family;
 	}
 	.current-menu-item {
 		a {
-			color: $family;
+			color: $family !important;
 		}
 	}
 }
 .church-content {
-	border-top: 2px solid $church;
 	h1, h3 {
 		color: $church;
 	}
 	.current-menu-item {
 		a {
-			color: $church;
+			color: $church !important;
 		}
 	}
 }

@@ -6,6 +6,8 @@
  *
  * @package Home Word
  */
+session_start();
+$_SESSION['cat'] = $_GET['cat'];
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>

@@ -137,7 +137,7 @@ function create_post_type() {
 		'has_archive' => true,
 		'menu_position' => 5,
 		'taxonomies' => array('category', 'area'),
-		'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'comments', 'revisions')
+		'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'comments', 'revisions', 'author')
 	);
 	register_post_type( 'articles', $articleArgs );
 	$devotionArgs = array(
@@ -149,7 +149,7 @@ function create_post_type() {
 		'has_archive' => true,
 		'menu_position' => 5,
 		'taxonomies' => array('category', 'area'),
-		'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'comments', 'revisions')
+		'supports' => array('title', 'editor', 'excerpt', 'thumbnail', 'comments', 'revisions', 'author')
 	);
 	register_post_type( 'devotionals', $devotionArgs );
 	$sliderArgs = array(
@@ -160,7 +160,7 @@ function create_post_type() {
 		'public' => true,
 		'has_archive' => true,
 		'menu_position' => 5,
-		'supports' => array('title', 'editor', 'revisions')
+		'supports' => array('title', 'editor', 'revisions', 'author')
 	);
 	register_post_type( 'sliders', $sliderArgs );
 }
@@ -203,3 +203,13 @@ function my_theme_wrapper_end() {
   echo '</div>';
 }
 add_theme_support( 'woocommerce' );
+/*Custom Post Type Archive*/
+function namespace_add_custom_types( $query ) {
+  if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
+    $query->set( 'post_type', array(
+     'post', 'articles', 'devotionals'
+		));
+	  return $query;
+	}
+}
+//add_filter( 'pre_get_posts', 'namespace_add_custom_types' );
