@@ -12,25 +12,59 @@
  */
 
 get_header(); ?>
+	<?php
+		$displaySlider = get_field('display_slider');
+		if ($displaySlider == 'Yes'){
+			get_template_part( 'content', 'slider' );
+			wp_reset_postdata();
+		}
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	?>
+	<div class="general-content group <?php echo $_SESSION['cat']; ?>-content">
+		<div class="content-section archive">
 
 		<?php if ( have_posts() ) : ?>
+<?php
+	$thisCat = single_cat_title("", false);
+	if($_SESSION['cat'] === 'families') :
+		//Articles
+		$args = array( 'post_type' => 'post', 'posts_per_page' => 4, 'area' => 'families');
+		$loop = new WP_Query( $args );
+		if ( $loop->have_posts() ) : ?>
 
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
+				<h4 class="archive-title">Culture Blog for Families</h4>
+				<div class="group">
+				<?php while ( $loop->have_posts() ) : $loop->the_post();?>
+					<div class="entry-excerpt">
+						<?php get_template_part( 'content', 'archive' ); ?>
+					</div>
+				<?php endwhile;	endif; ?>
+				</div>
+<?php
+	elseif($_SESSION['cat'] === 'church') :
+		//Articles
+		$args = array( 'post_type' => 'post', 'posts_per_page' => 4, 'area' => 'church-leaders');
+		$loop = new WP_Query( $args );
+		if ( $loop->have_posts() ) : ?>
 
-				<?php
-					/* Include the Post-Format-specific template for the content.
-					 * If you want to override this in a child theme, then include a file
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					 */
-					get_template_part( 'content', get_post_format() );
-				?>
-
-			<?php endwhile; ?>
-
+				<h4 class="archive-title">Culture Blog for Church Leaders</h4>
+				<div class="group">
+				<?php while ( $loop->have_posts() ) : $loop->the_post();?>
+					<div class="entry-excerpt">
+						<?php get_template_part( 'content', 'archive' ); ?>
+					</div>
+				<?php endwhile;	endif; ?>
+				</div>
+<?php else :
+		$args = array( 'post_type' => 'post', 'posts_per_page' => 4);
+		$loop = new WP_Query( $args );
+		while ( $loop->have_posts() ) : $loop->the_post();
+			echo '<div class="entry-excerpt">';
+			get_template_part( 'content', 'archive' );
+			echo '</div>';
+		endwhile;
+	endif;
+?>
 			<?php homeword_paging_nav(); ?>
 
 		<?php else : ?>
@@ -39,8 +73,7 @@ get_header(); ?>
 
 		<?php endif; ?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-<?php get_sidebar(); ?>
+		</div><!--content-section-->
+		<?php get_sidebar(); ?>
+	</div><!--general-content-->
 <?php get_footer(); ?>

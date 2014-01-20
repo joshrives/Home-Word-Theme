@@ -16,8 +16,28 @@
 			<div class="entry-cats">
 				Published in
 <?php
-	echo get_the_term_list( $post->ID, 'area', '', ', ', ', ' );
-	echo get_the_term_list( $post->ID, 'category', '', ', ', '' );
+	$area_terms = wp_get_object_terms($post->ID, 'area');
+	if(!empty($area_terms)){
+	  if(!is_wp_error( $area_terms )){
+	    foreach($area_terms as $term){
+	    	echo '<a href="' .  esc_url( home_url( '/' ) ) . $term->slug . '/?cat='. $_GET['cat'].'">'.$term->name.'</a>';
+			//echo '<a href="'.get_term_link($term->slug, 'area').'?cat='. $_GET['cat'].'">'.$term->name.'</a>';
+			if ($term != end($area_terms)) {
+				echo ', ';
+			}
+	    }
+	  }
+	}
+	//echo get_the_term_list( $post->ID, 'area', '', ', ', '' );
+	//echo get_the_term_list( $post->ID, 'category', '', ', ', '' );
+	$cat_terms = wp_get_object_terms($post->ID, 'category');
+	if(!empty($cat_terms)){
+	  if(!is_wp_error( $cat_terms )){
+	    foreach($cat_terms as $term){
+	      echo ', <a href="'.get_term_link($term->slug, 'category').'?cat='. $_GET['cat'].'">'.$term->name.'</a>';
+	    }
+	  }
+	}
 ?>
 			</div>
 		</div><!-- .entry-meta -->

@@ -30,42 +30,121 @@ get_header(); ?>
 		if ( $loop->have_posts() ) : ?>
 
 				<h4 class="archive-title">Articles about <?php single_cat_title(); ?></h4>
-			<?php while ( $loop->have_posts() ) : $loop->the_post();?>
-				<div class='half<?php if($i % 2 !== 0) {echo " first";} ?>'>
-					<?php get_template_part( 'content', 'archive' ); ?>
+				<div class="archive-grouping group">
+				<?php while ( $loop->have_posts() ) : $loop->the_post();?>
+					<?php if($loop->post_count == 1) : ?>
+						<div class="entry-excerpt">
+							<?php get_template_part( 'content', 'archiveexcerpt' ); ?>
+						</div>
+					<?php else : ?>
+					<div class='entry-excerpt half<?php if($i % 2 !== 0) {echo " first";} ?>'>
+						<?php get_template_part( 'content', 'archiveexcerpt' ); ?>
+					</div>
+				<?php endif; endwhile; ?>
 				</div>
-			<?php endwhile;	endif; ?>
+		<?php endif; ?>
 		<?php wp_reset_postdata();
 		//Devotions
 		$args = array( 'post_type' => 'devotionals', 'posts_per_page' => 4, 'area' => 'families', 'category_name' => $thisCat);
 		$loop = new WP_Query( $args );
-		if ( $loop->have_posts() ) :
-			echo '<h4 class="archive-title">Devotionals about ';
-			single_cat_title();
-			echo '</h4>';
-			while ( $loop->have_posts() ) : $loop->the_post();
-				get_template_part( 'content', 'archive' );
-			endwhile;
-		endif;
-		wp_reset_postdata();
-		//Blogs
+		if ( $loop->have_posts() ) : ?>
+
+				<h4 class="archive-title">Devotions about <?php single_cat_title(); ?></h4>
+				<div class="archive-grouping group">
+				<?php while ( $loop->have_posts() ) : $loop->the_post();?>
+					<?php if($loop->post_count == 1) : ?>
+						<div class="entry-excerpt">
+							<?php get_template_part( 'content', 'archiveexcerpt' ); ?>
+						</div>
+					<?php else : ?>
+					<div class='entry-excerpt half<?php if($i % 2 !== 0) {echo " first";} ?>'>
+						<?php get_template_part( 'content', 'archiveexcerpt' ); ?>
+					</div>
+				<?php endif; endwhile; ?>
+				</div>
+		<?php endif; ?>
+		<?php wp_reset_postdata();
+		//Devotions
 		$args = array( 'post_type' => 'post', 'posts_per_page' => 4, 'area' => 'families', 'category_name' => $thisCat);
 		$loop = new WP_Query( $args );
-		if ( $loop->have_posts() ) :
-			echo '<h4 class="archive-title">Blog Posts about ';
-			single_cat_title();
-			echo '</h4>';
-			while ( $loop->have_posts() ) : $loop->the_post();
-				get_template_part( 'content', 'archive' );
-			endwhile;
-		endif;
+		if ( $loop->have_posts() ) : ?>
+
+				<h4 class="archive-title">Blog Posts about <?php single_cat_title(); ?></h4>
+				<div class="archive-grouping group">
+				<?php while ( $loop->have_posts() ) : $loop->the_post();?>
+					<?php if($loop->post_count == 1) : ?>
+						<div class="entry-excerpt">
+							<?php get_template_part( 'content', 'archiveexcerpt' ); ?>
+						</div>
+					<?php else : ?>
+					<div class='entry-excerpt half<?php if($i % 2 !== 0) {echo " first";} ?>'>
+						<?php get_template_part( 'content', 'archiveexcerpt' ); ?>
+					</div>
+				<?php endif; endwhile; ?>
+				</div>
+		<?php endif; ?>
+<?php
 	elseif($_SESSION['cat'] === 'church') :
-		$args = array( 'post_type' => 'articles', 'posts_per_page' => 4, 'area' => 'church-leaders');
+		//Articles
+		$args = array( 'post_type' => 'articles', 'posts_per_page' => 4, 'area' => 'church-leaders', 'category_name' => $thisCat);
 		$loop = new WP_Query( $args );
-		while ( $loop->have_posts() ) : $loop->the_post();
-			get_template_part( 'content', 'archive' );
-		endwhile;
-	else :
+		if ( $loop->have_posts() ) : ?>
+
+				<h4 class="archive-title">Articles about <?php single_cat_title(); ?></h4>
+				<div class="archive-grouping group">
+				<?php while ( $loop->have_posts() ) : $loop->the_post();?>
+					<?php if($loop->post_count == 1) : ?>
+						<div class="entry-excerpt">
+							<?php get_template_part( 'content', 'archiveexcerpt' ); ?>
+						</div>
+					<?php else : ?>
+					<div class='entry-excerpt half<?php if($i % 2 !== 0) {echo " first";} ?>'>
+						<?php get_template_part( 'content', 'archiveexcerpt' ); ?>
+					</div>
+				<?php endif; endwhile; ?>
+				</div>
+		<?php endif; ?>
+		<?php wp_reset_postdata();
+		//Devotions
+		$args = array( 'post_type' => 'devotionals', 'posts_per_page' => 4, 'area' => 'church-leaders', 'category_name' => $thisCat);
+		$loop = new WP_Query( $args );
+		if ( $loop->have_posts() ) : ?>
+
+				<h4 class="archive-title">Devotions about <?php single_cat_title(); ?></h4>
+				<div class="archive-grouping group">
+				<?php while ( $loop->have_posts() ) : $loop->the_post();?>
+					<?php if($loop->post_count == 1) : ?>
+						<div class="entry-excerpt">
+							<?php get_template_part( 'content', 'archiveexcerpt' ); ?>
+						</div>
+					<?php else : ?>
+					<div class='entry-excerpt half<?php if($i % 2 !== 0) {echo " first";} ?>'>
+						<?php get_template_part( 'content', 'archiveexcerpt' ); ?>
+					</div>
+				<?php endif; endwhile; ?>
+				</div>
+		<?php endif; ?>
+		<?php wp_reset_postdata();
+		//Devotions
+		$args = array( 'post_type' => 'post', 'posts_per_page' => 4, 'area' => 'church-leaders', 'category_name' => $thisCat);
+		$loop = new WP_Query( $args );
+		if ( $loop->have_posts() ) : ?>
+
+				<h4 class="archive-title">Blog Posts about <?php single_cat_title(); ?></h4>
+				<div class="archive-grouping group">
+				<?php while ( $loop->have_posts() ) : $loop->the_post();?>
+					<?php if($loop->post_count == 1) : ?>
+						<div class="entry-excerpt">
+							<?php get_template_part( 'content', 'archiveexcerpt' ); ?>
+						</div>
+					<?php else : ?>
+					<div class='entry-excerpt half<?php if($i % 2 !== 0) {echo " first";} ?>'>
+						<?php get_template_part( 'content', 'archiveexcerpt' ); ?>
+					</div>
+				<?php endif; endwhile; ?>
+				</div>
+		<?php endif; ?>
+<?php else :
 		$args = array( 'post_type' => 'articles', 'posts_per_page' => 4, 'category_name' => $thisCat);
 		$loop = new WP_Query( $args );
 		while ( $loop->have_posts() ) : $loop->the_post();

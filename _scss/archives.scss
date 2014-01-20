@@ -1,25 +1,15 @@
 .content-section.archive {
 	padding: 2em 0;
 }
-.archive article {
-	padding: 2em 0;
-	border-bottom: 0.25em solid $blue;
-	&:first-of-type {
-		padding-top: 0;
-	}
-	&:last-of-type {
-		border: 0;
-	}
-}
 .archive-title {
 	padding: 0 2em;
 }
 .archive-more {
 	@include button($blue, #fff);
 }
-.families-content {
-	.archive article {
-		border-bottom: 0.25em solid $family;
+.families-content .archive {
+	.entry-excerpt {
+		border-color: $family;
 		&:last-of-type {
 			border: 0;
 		}
@@ -27,15 +17,49 @@
 	.archive-more {
 		@include button($family, #fff);
 	}
+	.entry-title {
+		color: $black;
+	}
 }
-.church-content {
-	.archive article {
-		border-bottom: 0.25em solid $church;
+.church-content .archive {
+	.entry-excerpt {
+		border-color: $church;
 		&:last-of-type {
 			border: 0;
 		}
 	}
 	.archive-more {
 		@include button($church, #fff);
+	}
+}
+.archive {
+	.entry-excerpt {
+		padding: 2em 0;
+		border-bottom: 0.25em solid $blue;
+		&.half {
+			border: 0 !important;
+		}
+	}
+	.entry-author {
+		font-size: 0.75em;
+	}
+	.entry-title, .entry-title a {
+		color: $black;
+	}
+}
+.archive-grouping {
+	border-bottom: 0.25em solid $blue;
+	.entry-excerpt {
+		padding: 0 0 2em;
+	}
+}
+.families-content {
+	.archive-grouping {
+		border-color: $family
+	}
+}
+.church-content {
+	.archive-grouping {
+		border-color: $church;
 	}
 }

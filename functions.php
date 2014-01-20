@@ -42,8 +42,38 @@ function homeword_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'homeword' ),
+		'footer' => __( 'Footer Links', 'homeword' ),
+		'families' => __( 'Familiy Menu', 'homeword' ),
+		'church' => __( 'Church Leader Menu', 'homeword' ),
+		'about' => __( 'About Us Menu', 'homeword' ),
 	) );
+	//Get variable at end of menu
+	add_filter( 'wp_nav_menu_objects', 'add_var', 10, 2 );
+
+function add_var( $items, $args ) {
+    $out = array();
+    if( $args->theme_location == 'families' ) {
+    	foreach ( $items as $item ) {
+	        if ( isset ( $item->url ) ) {
+	        	$item->url .= '?cat=families';
+	        }
+			$out[] = $item;
+	    }
+    } elseif ( $args->theme_location == 'church' ) {
+    	foreach ( $items as $item ) {
+	        if ( isset ( $item->url ) ) {
+	        	$item->url .= '?cat=church';
+	        }
+			$out[] = $item;
+	    }
+
+	} else {
+    	$out = $items;
+    }
+
+
+    return $out;
+}
 
 	// Enable support for Post Formats.
 	//add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
@@ -188,6 +218,18 @@ function new_excerpt_more( $more ) {
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 remove_filter( 'the_excerpt', 'wpautop' );
+function get_excerpt($limit, $source = null){
+
+    if($source == "content" ? ($excerpt = get_the_content()) : ($excerpt = get_the_excerpt()));
+    $excerpt = preg_replace(" (\[.*?\])",'',$excerpt);
+    $excerpt = strip_shortcodes($excerpt);
+    $excerpt = strip_tags($excerpt);
+    $excerpt = substr($excerpt, 0, $limit);
+    $excerpt = substr($excerpt, 0, strripos($excerpt, " "));
+    $excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
+    $excerpt = $excerpt.'...';
+    return $excerpt;
+}
 /*WooCommerce*/
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
 remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);

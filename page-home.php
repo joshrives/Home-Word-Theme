@@ -64,7 +64,7 @@ get_header(); ?>
 	$loop = new WP_Query( $args );
 	while ( $loop->have_posts() ) : $loop->the_post();
 ?>
-									<a href = "<?php the_permalink(); ?>">
+									<a href = "<?php the_permalink(); ?>?cat=families">
 										<?php
 											if ( has_post_thumbnail() ) {
 												the_post_thumbnail();
@@ -74,11 +74,11 @@ get_header(); ?>
 									</a>
 									<h3><?php the_title(); ?></h3>
 									<p><?php the_excerpt(); ?></p>
-									<a href = "<?php the_permalink(); ?>" class="read-more">Continue Reading &raquo;</a>
+									<a href = "<?php the_permalink(); ?>?cat=families" class="read-more">Continue Reading &raquo;</a>
 <?php endwhile; ?>
 								</div>
 								<div class="tab-column image">
-									<a href = "#">
+									<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/families/?cat=families">
 										<img src = "<?php bloginfo('template_directory'); ?>/_i/family-image.jpg">
 									</a>
 								</div>
@@ -108,7 +108,7 @@ get_header(); ?>
 	$loop = new WP_Query( $args );
 	while ( $loop->have_posts() ) : $loop->the_post();
 ?>
-									<a href = "<?php the_permalink(); ?>">
+									<a href = "<?php the_permalink(); ?>?cat=church">
 										<?php
 											if ( has_post_thumbnail() ) {
 												the_post_thumbnail();
@@ -118,11 +118,11 @@ get_header(); ?>
 									</a>
 									<h3><?php the_title(); ?></h3>
 									<p><?php the_excerpt(); ?></p>
-									<a href = "<?php the_permalink(); ?>" class="read-more">Continue Reading &raquo;</a>
+									<a href = "<?php the_permalink(); ?>?cat=church" class="read-more">Continue Reading &raquo;</a>
 <?php endwhile; ?>
 								</div>
 								<div class="tab-column image">
-									<a href = "#">
+									<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/families/?cat=church">
 										<img src = "<?php bloginfo('template_directory'); ?>/_i/church-image.jpg">
 									</a>
 								</div>

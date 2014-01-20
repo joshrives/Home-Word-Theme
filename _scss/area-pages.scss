@@ -1,6 +1,9 @@
 .families-content {
 	h1, h3 {
 		color: $family;
+		a {
+			color: $family;
+		}
 	}
 	.current-menu-item {
 		a {
@@ -11,6 +14,9 @@
 .church-content {
 	h1, h3 {
 		color: $church;
+		a {
+			color: $church;
+		}
 	}
 	.current-menu-item {
 		a {

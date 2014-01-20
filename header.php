@@ -78,34 +78,14 @@ $_SESSION['cat'] = $_GET['cat'];
 							for Families
 							<span aria-hidden="true" data-icon="&#x75;"></span>
 						</a>
-						<ul class="subnav">
-							<li>
-								<a href = "#">Articles & Media</a>
-							</li>
-							<li>
-								<a href = "#">Culture Blog</a>
-							</li>
-							<li>
-								<a href = "#">Devotionals</a>
-							</li>
-						</ul>
+						<?php wp_nav_menu( array( 'theme_location' => 'families', 'menu_class' => 'subnav', 'container' => false) ); ?>
 					</li><!--
 					--><li class="with-sub church-nav">
 						<a href = "#">
 							for Church Leaders
 							<span aria-hidden="true" data-icon="&#x75;"></span>
 						</a>
-						<ul class="subnav">
-							<li>
-								<a href = "#">Articles & Media</a>
-							</li>
-							<li>
-								<a href = "#">Culture Blog</a>
-							</li>
-							<li>
-								<a href = "#">Devotionals</a>
-							</li>
-						</ul>
+						<?php wp_nav_menu( array( 'theme_location' => 'church', 'menu_class' => 'subnav', 'container' => false) ); ?>
 					</li><!--
 					--><li>
 						<a href = "#">Store</a>

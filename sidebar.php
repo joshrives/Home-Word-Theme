@@ -6,7 +6,14 @@
  */
 ?>
 	<aside class="sidebar-section">
-		<ul class="sidebar-nav">
+		<?php
+			if ($_SESSION['cat'] === 'families') {
+				wp_nav_menu( array( 'theme_location' => 'families', 'menu_class' => 'sidebar-nav', 'container' => false) );
+			} elseif ($_SESSION['cat'] === 'church') {
+				wp_nav_menu( array( 'theme_location' => 'church', 'menu_class' => 'sidebar-nav', 'container' => false) );
+			}
+		?>
+		<!--<ul class="sidebar-nav">
 			<li class="current-menu-item">
 				<a href = "#">Families Overview</a>
 			</li>
@@ -22,7 +29,7 @@
 			<li>
 				<a href = "#">Upcoming Events</a>
 			</li>
-		</ul>
+		</ul>-->
 		<div class="sidebar-content">
 
 		</div>
