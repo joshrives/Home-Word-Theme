@@ -135,3 +135,6 @@
 		margin: 0;
 	}
 }
+.powerpress_link_pinw {
+	@include button($radio, #fff);
+}

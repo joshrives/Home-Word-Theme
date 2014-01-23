@@ -107,6 +107,24 @@ h1,h2,h3,h4,h5,h6 {
 		}
 	}
 }
+.two-third {
+	@include bp(44) {
+		float: left;
+		width: 65%;
+		&.first {
+			margin-right: 5%;
+		}
+	}
+}
+.third {
+	@include bp(44) {
+		float: left;
+		width: 30%;
+		&.first {
+			margin-right: 5%;
+		}
+	}
+}
 .three-list {
 	list-style: none;
 	padding: 0;
@@ -138,3 +156,4 @@ h1,h2,h3,h4,h5,h6 {
 @import "sidebar";
 @import "article";
 @import "archives";
+@import "popup";

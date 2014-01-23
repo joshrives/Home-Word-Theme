@@ -40,12 +40,6 @@
 									<span class="assistive-text">Instagram</span>
 								</a>
 							</li>
-							<li>
-								<a href = "#">
-									<span aria-hidden="true" data-icon="&#x79;"></span>
-									<span class="assistive-text">YouTube</span>
-								</a>
-							</li>
 						</ul>
 					</li>
 					<li>

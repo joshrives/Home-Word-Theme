@@ -26,7 +26,7 @@ get_header(); ?>
 							<li class="active">
 								<a href="#radio" data-toggle="tab" class="radio-tab">
 									<span aria-hidden="true" data-icon="&#x52;"></span>
-									Radio Broadcast
+									Radio Broadcasts
 								</a>
 							</li>
 							<li>
@@ -51,10 +51,15 @@ get_header(); ?>
 									</a>
 								</div>
 								<div class="tab-column double right-tab recent-radio">
-									<h4>december 29, 2013</h4>
-									<h2>Kay Warren Interview</h2>
-									<p>In non velit elementum, varius erat sit amet, vulputate enim. Quisque id ligula massa. Vivamus elit lectus, condimentum non commodo eget, tristique ac dolor. Curabitur pellentesque, leo ut cursus ullamcorper, lectus massa sollicitudin neque, ut facilisis nunc risus nec libero. </p>
-									<a href = "#" class="button">Listen Now</a>
+<?php
+	$args = array( 'post_type' => 'articles', 'posts_per_page' => 1, 'area' => 'radio');
+	$loop = new WP_Query( $args );
+	while ( $loop->have_posts() ) : $loop->the_post();
+?>
+									<h4><?php the_date(); ?></h4>
+									<h2><?php the_title(); ?></h2>
+									<p><?php the_content(); ?></p>
+<?php endwhile; ?>
 								</div>
 							</div>
 							<div class="tab-pane family-pane" id="family">
@@ -84,23 +89,19 @@ get_header(); ?>
 								</div>
 								<div class="tab-column right-tab link-list">
 									<h5>Family Resources Library:</h5>
-									<ul>
+									<!--<ul>
 										<li><a href = "#">Articles & Media</a></li>
 										<li><a href = "#">Culture Blog</a></li>
 										<li><a href = "#">Devotionals</a></li>
 										<li><a href = "#">Upcoming Events</a></li>
-									</ul>
+									</ul>-->
+									<?php wp_nav_menu( array( 'theme_location' => 'families',  'container' => false) ); ?>
 								</div>
 							</div>
 							<div class="tab-pane church-pane" id="church">
 								<div class="tab-column link-list">
-									<h5>Family Resources Library:</h5>
-									<ul>
-										<li><a href = "#">Articles & Media</a></li>
-										<li><a href = "#">Culture Blog</a></li>
-										<li><a href = "#">Devotionals</a></li>
-										<li><a href = "#">Upcoming Events</a></li>
-									</ul>
+									<h5>Church Leader Resources Library:</h5>
+									<?php wp_nav_menu( array( 'theme_location' => 'church',  'container' => false) ); ?>
 								</div>
 								<div class="tab-column article-preview">
 <?php

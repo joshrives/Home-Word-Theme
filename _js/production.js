@@ -440,6 +440,6 @@ jQuery(document).ready(function() {
 	toggleNav();
 });
 
-$(window).resize(function() {
+jQuery(window).resize(function() {
 	jQuery('body').removeClass('show-nav');
 });

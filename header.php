@@ -59,12 +59,6 @@ $_SESSION['cat'] = $_GET['cat'];
 								<span class="assistive-text">Instagram</span>
 							</a>
 						</li>
-						<li>
-							<a href = "#">
-								<span aria-hidden="true" data-icon="&#x79;"></span>
-								<span class="assistive-text">YouTube</span>
-							</a>
-						</li>
 					</ul>
 					<?php get_search_form(); ?>
 				</div>

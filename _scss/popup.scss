@@ -1,0 +1,145 @@
+.popup {
+	background: #fff;
+}
+
+.popup-header {
+	background: $blue-back;
+	padding: 1em 2em;
+	img {
+		display: block;
+		max-width: 10.75em;
+		margin: 0 auto;
+	}
+}
+
+.popup-wrapper {
+	max-width: 34em;
+	margin: 0 auto;
+	padding: 2em 0;
+}
+.broadcast-header {
+	h1 {
+		font-weight: normal;
+		color: $black;
+		font-family: "adelle",serif;
+		margin: 0.25em 0 0;
+		padding: 0 0 0.25em;
+		border-bottom: 1px solid #ddd;
+	}
+}
+.podcast-link {
+	margin: 0.5em 0;
+}
+.powerpress_player {
+	.mejs-container, .mejs-embed, .mejs-embed body {
+		background: #153045;
+		height: 50px !important;
+		width: 100% !important;
+	}
+	.mejs-container .mejs-controls {
+		background: #153045;
+		height: 50px !important;
+		> div {
+			width: 4em;
+			height: 50px;
+		}
+	}
+	.mejs-controls {
+		padding:  0;
+		.mejs-button {
+			position: relative;
+			button {
+				margin: -8px 0 0 -8px;
+				left: 50%;
+				top: 50%;
+			}
+		}
+		.mejs-playpause-button {
+			background: #0e2333;
+		}
+		.mejs-time {
+			padding: 0;
+			position: relative;
+			span {
+				line-height: 50px;
+				float: none;
+			}
+		}
+		div.mejs-time-rail {
+			position: relative;
+			padding: 0;
+			max-width: 250px;
+			.mejs-time-total {
+				max-width: 240px;
+				background: #000;
+			}
+			span {
+				top: 50%;
+				margin-top: -5px;
+			}
+		}
+		div.mejs-volume-button {
+			width: 3em;
+		}
+		.mejs-horizontal-volume-total {
+			height: 10px;
+			top: 50%;
+			left: 0;
+			margin-top: -5px;
+			background: #000;
+		}
+		.mejs-horizontal-volume-current {
+			height: 10px;
+			top: 50%;
+			left: 0;
+			margin-top: -5px;
+			background: #f2ba11;
+		}
+	}
+}
+.popup-bottom {
+	margin: 2em 0;
+	.two-third {
+		@include bp(30) {
+			float: left;
+			width: 65%;
+			&.first {
+				margin-right: 5%;
+			}
+		}
+	}
+	.third {
+		@include bp(30) {
+			float: left;
+			width: 30%;
+			&.first {
+				margin-right: 5%;
+			}
+		}
+	}
+}
+.popup-data {
+
+}
+.popup-desc {
+	h5 {
+		margin-top: 0;
+		font-family: "adelle",serif;
+		color: #999;
+	}
+}
+.popup-links {
+	list-style: none;
+	margin: 0.5em 0;
+	padding: 0;
+	[data-icon] {
+		vertical-align: middle;
+		margin-right: 0.5em;
+	}
+	a {
+		display: block;
+		padding: 0.1em 0;
+		margin: 0.1em 0;
+		color: #3583b4;
+	}
+}
