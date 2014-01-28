@@ -80,10 +80,10 @@ function add_var( $items, $args ) {
 	add_theme_support( 'post-thumbnails' );
 
 	// Setup the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'homeword_custom_background_args', array(
+	/*add_theme_support( 'custom-background', apply_filters( 'homeword_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
-	) ) );
+	) ) );*/
 }
 endif; // homeword_setup
 add_action( 'after_setup_theme', 'homeword_setup' );
@@ -238,13 +238,164 @@ add_action('woocommerce_before_main_content', 'my_theme_wrapper_start', 10);
 add_action('woocommerce_after_main_content', 'my_theme_wrapper_end', 10);
 
 function my_theme_wrapper_start() {
-  echo '<div class="general-content">';
+  echo '<div class="content-section">';
 }
 
 function my_theme_wrapper_end() {
   echo '</div>';
 }
 add_theme_support( 'woocommerce' );
+function change_product_layout() {
+
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+	remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+	remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash' );
+	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs' );
+	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count' );
+
+
+	add_action( 'woocommerce_single_product_cart', 'woocommerce_template_single_price', 20 );
+	add_action( 'woocommerce_single_product_cart', 'woocommerce_template_single_add_to_cart', 25 );
+
+}
+add_action ('init', 'change_product_layout');
+function woocommerce_quantity_input() {
+    global $product;
+
+	$defaults = array(
+		'input_name'  	=> 'quantity',
+		'input_value'  	=> '1',
+		'max_value'  	=> apply_filters( 'woocommerce_quantity_input_max', '', $product ),
+		'min_value'  	=> apply_filters( 'woocommerce_quantity_input_min', '', $product ),
+		'step' 		=> apply_filters( 'woocommerce_quantity_input_step', '1', $product ),
+		'style'		=> apply_filters( 'woocommerce_quantity_style', 'float:left; margin-right:10px;', $product )
+	);
+	if ( ! empty( $defaults['min_value'] ) )
+		$min = $defaults['min_value'];
+	else $min = 1;
+
+	if ( ! empty( $defaults['max_value'] ) )
+		$max = $defaults['max_value'];
+	else $max = 20;
+
+	if ( ! empty( $defaults['step'] ) )
+		$step = $defaults['step'];
+	else $step = 1;
+
+	$options = '';
+	for ( $count = $min; $count <= $max; $count = $count+$step ) {
+		$options .= '<option value="' . $count . '">' . $count . '</option>';
+	}
+	echo '<div class="quantity_select"><label>Qty:</label><span class="select-qty"><select name="' . esc_attr( $defaults['input_name'] ) . '" title="' . _x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) . '" class="qty">' . $options . '</select></span></div>';
+}
+add_filter( 'woocommerce_breadcrumb_home_url', 'woo_custom_breadrumb_home_url' );
+function woo_custom_breadrumb_home_url() {
+    return 'http://homeword.com/shop';
+}
+add_filter( 'woocommerce_breadcrumb_defaults', 'jk_change_breadcrumb_home_text' );
+function jk_change_breadcrumb_home_text( $defaults ) {
+    // Change the breadcrumb home text from 'Home' to 'Appartment'
+	$defaults['home'] = 'Store';
+	return $defaults;
+}
+add_filter( 'woocommerce_breadcrumb_defaults', 'jk_change_breadcrumb_delimiter' );
+function jk_change_breadcrumb_delimiter( $defaults ) {
+	// Change the breadcrumb delimeter from '/' to '>'
+	$defaults['delimiter'] = ' > ';
+	return $defaults;
+}
+/***Author Fields***/
+// Display Fields
+add_action( 'woocommerce_product_options_general_product_data', 'woo_add_custom_general_fields' );
+
+// Save Fields
+add_action( 'woocommerce_process_product_meta', 'woo_add_custom_general_fields_save' );
+
+function woo_add_custom_general_fields() {
+	global $woocommerce, $post;
+	echo '<div class="options_group">';
+	// Author Field
+	woocommerce_wp_text_input(
+		array(
+			'id'          => '_author_field',
+			'label'       => __( 'Author', 'woocommerce' ),
+			'placeholder' => 'Name',
+			'desc_tip'    => 'true',
+			'description' => __( 'Enter the name of the author or leave blank if there is none.', 'woocommerce' )
+		)
+	);
+	// Publisher Field
+	woocommerce_wp_text_input(
+		array(
+			'id'          => '_publisher_field',
+			'label'       => __( 'Publisher', 'woocommerce' ),
+			'placeholder' => 'Name',
+			'desc_tip'    => 'true',
+			'description' => __( 'Enter the name of the Publisher or leave blank if there is none.', 'woocommerce' )
+		)
+	);
+	// Year Field
+	woocommerce_wp_text_input(
+		array(
+			'id'          => '_year_field',
+			'label'       => __( 'Year Published', 'woocommerce' ),
+			'placeholder' => 'YYYY',
+			'desc_tip'    => 'true',
+			'description' => __( 'Enter the year it was published or leave blank if there is none.', 'woocommerce' )
+		)
+	);
+	// Format Field
+	woocommerce_wp_text_input(
+		array(
+			'id'          => '_format_field',
+			'label'       => __( 'Format', 'woocommerce' ),
+			'placeholder' => 'Ex: Softcover',
+			'desc_tip'    => 'true',
+			'description' => __( 'Enter the format the book is in or leave blank if there is none.', 'woocommerce' )
+		)
+	);
+	// Pages Field
+	woocommerce_wp_text_input(
+		array(
+			'id'          => '_pages_field',
+			'label'       => __( 'No. Pages', 'woocommerce' ),
+			'placeholder' => '###',
+			'desc_tip'    => 'true',
+			'description' => __( 'Enter the number of pages or leave blank if there is none.', 'woocommerce' )
+		)
+	);
+	echo '</div>';
+}
+function woo_add_custom_general_fields_save( $post_id ){
+	// Author Field
+	$woocommerce_text_field = $_POST['_author_field'];
+	if( !empty( $woocommerce_text_field ) )
+		update_post_meta( $post_id, '_author_field', esc_attr( $woocommerce_text_field ) );
+	// Publisher Field
+	$woocommerce_publisher_field = $_POST['_publisher_field'];
+	if( !empty( $woocommerce_publisher_field ) )
+		update_post_meta( $post_id, '_publisher_field', esc_attr( $woocommerce_publisher_field ) );
+	// Year Field
+	$woocommerce_year_field = $_POST['_year_field'];
+	if( !empty( $woocommerce_year_field ) )
+		update_post_meta( $post_id, '_year_field', esc_attr( $woocommerce_year_field ) );
+	// Format Field
+	$woocommerce_format_field = $_POST['_format_field'];
+	if( !empty( $woocommerce_format_field ) )
+		update_post_meta( $post_id, '_format_field', esc_attr( $woocommerce_format_field ) );
+	// Pages Field
+	$woocommerce_pages_field = $_POST['_pages_field'];
+	if( !empty( $woocommerce_pages_field ) )
+		update_post_meta( $post_id, '_pages_field', esc_attr( $woocommerce_pages_field ) );
+}
+add_filter( 'woocommerce_default_address_fields' , 'custom_override_default_address_fields' );
+
+// Our hooked in function - $address_fields is passed via the filter!
+function custom_override_default_address_fields( $address_fields ) {
+     $address_fields['address_2']['label'] = 'Address 2';
+
+     return $address_fields;
+}
 /*Custom Post Type Archive*/
 function namespace_add_custom_types( $query ) {
   if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {

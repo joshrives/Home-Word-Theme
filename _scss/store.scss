@@ -1,0 +1,243 @@
+.products {
+	list-style: none;
+	margin: 2em 0 0;
+	padding: 0;
+	li {
+		display: block;
+		margin-bottom: 1em;
+		@include bp(44) {
+			float: left;
+			width: 30%;
+			margin-right: 5%;
+			&:nth-child(3n) {
+				margin-right: 0;
+			}
+		}
+	}
+	h4 {
+		font-size: 0.875em;
+		margin: 0.5em 0 0;
+	}
+}
+.product-author-list {
+	font-size: 0.75em;
+	color: $black;
+}
+.price {
+	font-size: 1.125em;
+	line-height: 1;
+	color: $black;
+	margin: 0.5em 0 0.75em;
+	&.sale {
+		color: #e74c3c;
+	}
+}
+.list-price {
+	color: #999;
+	ins {
+		display: none; //hides list price
+	}
+}
+.add_to_cart_button {
+	@include button(#f7cd23, #fff);
+	padding: 0.1em 0.75em;
+}
+.added_to_cart {
+	font-size: 0.75em;
+	color: #999;
+	margin-left: 0.5em;
+}
+.page-title {
+	font-family: "lft-etica","Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	display: inline-block;
+	margin: 0;
+}
+.woocommerce-breadcrumb {
+	font-size: 0.75em;
+	margin-bottom: 2em;
+}
+.woocommerce-result-count {
+	display: none;
+}
+.woocommerce-ordering {
+	float: right;
+	margin-top: 0;
+	position: relative;
+	select {
+		padding: 0.4em 1.1em 0.4em 0.75em;
+		-webkit-appearance: none;
+		border-radius: 0;
+		color: #999;
+		font-size: 0.75em;
+		text-transform: uppercase;
+		font-weight: bold;
+		background-color: #eee;
+		background-image: -webkit-gradient(linear, left bottom, left top, from(#fff), to(#eee));
+		background-image: -webkit-linear-gradient(bottom, #fff, #eee);
+		background-image:    -moz-linear-gradient(bottom, #fff, #eee);
+		background-image:      -o-linear-gradient(bottom, #fff, #eee);
+		background-image:         linear-gradient(to top, #fff, #eee);
+	}
+	&:after {
+		content: '\73';
+		font-family: 'Homeword';
+		line-height: 1;
+		position: absolute;
+		right: 0.2em;
+		top: 0.5em;
+	}
+}
+/***Single Product Page***/
+.single-product {
+	.content-section {
+		float: none;
+		width: 100%;
+		padding: 2em;
+	}
+}
+.product_title {
+	margin-bottom: 0.25em;
+}
+.product-author {
+	margin: 0;
+}
+.product-specifics {
+	color: #3e3e3e;
+	font-style: italic;
+}
+.product-divider {
+	display: block;
+	width: 10%;
+	height: 1px;
+	background: #999;
+	margin: 1em 0;
+	border: 0;
+}
+.product-cartbox {
+	background: #eee;
+	border: 1px solid #ccc;
+	padding: 1em 2em;
+	.button {
+		@include button(#f7cd23, #fff);
+		display: block;
+		width: 100%;
+		clear: both;
+	}
+	.price {
+		font-weight: bold;
+		font-size: 2.25em;
+		margin: 0;
+		&.sale {
+			font-size: 1.7em;
+		}
+	}
+}
+
+
+.quantity_select {
+	margin-bottom: 1em;
+	label {
+		font-weight: bold;
+		margin-right: 0.5em;
+	}
+	select {
+		padding: 0.4em 1.1em 0.4em 0.75em;
+		-webkit-appearance: none;
+		border-radius: 0;
+		font-weight: bold;
+		background-color: #eee;
+		background-image: -webkit-gradient(linear, left bottom, left top, from(#fff), to(#eee));
+		background-image: -webkit-linear-gradient(bottom, #fff, #eee);
+		background-image:    -moz-linear-gradient(bottom, #fff, #eee);
+		background-image:      -o-linear-gradient(bottom, #fff, #eee);
+		background-image:         linear-gradient(to top, #fff, #eee);
+	}
+	.select-qty {
+		position: relative;
+		&:after {
+			content: '\73';
+			font-family: 'Homeword';
+			line-height: 1;
+			position: absolute;
+			right: 0.2em;
+			top: 0.25em;
+		}
+	}
+}
+.product-price {
+	float: left;
+	margin-right: 1em;
+}
+.quantity_select {
+	float: right;
+}
+
+.related {
+	clear: both;
+	margin: 2em 0;
+	> h4 {
+		font-family: "adelle",serif;
+		padding-bottom: 0.5em;
+		border-bottom: 1px solid #ccc;
+	}
+	.products {
+		margin: 1em 0 0;
+		li {
+		display: block;
+		margin-bottom: 1em;
+			@include bp(44) {
+				float: left;
+				width: 18%;
+				margin-right: 2.5%;
+				&:nth-child(3n) {
+					margin-right: 2.5%;
+				}
+				&:nth-child(5n) {
+					margin-right: 0;
+				}
+			}
+		}
+		.add_to_cart_button {
+			display: none;
+		}
+	}
+}
+/*Store Home*/
+.store-home {
+	.woocommerce-breadcrumb {
+		display: none;
+	}
+	.page-title {
+		color: $blue;
+		font-family: "adelle",serif !important;
+		font-size: 2.5em;
+		text-transform: none;
+		font-weight: normal;
+		letter-spacing: 0;
+	}
+	.woocommerce-ordering {
+		display: none;
+	}
+	.products {
+		margin-top: 1em;
+	}
+}
+.store-home-group {
+	margin-top: 1em;
+	border-bottom: 1px solid #ccc;
+}
+.store-category-header {
+	h5 {
+		float: left;
+		color: #aaa;
+		margin: 0;
+	}
+	a {
+		float: right;
+		font-size: 0.83em;
+		color: #aaa;
+		line-height: 1;
+	}
+}

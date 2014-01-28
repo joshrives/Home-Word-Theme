@@ -23,22 +23,23 @@ get_header(); ?>
 				<div class="content-wrap general-content">
 					<div class="feature-tabs group">
 						<ul class="nav nav-tabs feature-tab-nav">
+
 							<li class="active">
 								<a href="#radio" data-toggle="tab" class="radio-tab">
 									<span aria-hidden="true" data-icon="&#x52;"></span>
-									Radio Broadcasts
+									<span class="tab-label">Radio Broadcasts</span>
 								</a>
 							</li>
 							<li>
 								<a href="#family" data-toggle="tab" class="family-tab">
 									<span aria-hidden="true" data-icon="&#x46;"></span>
-									Family Resources
+									<span class="tab-label">Family Resources</span>
 								</a>
 							</li>
 							<li>
 								<a href="#church" data-toggle="tab" class="church-tab">
 									<span aria-hidden="true" data-icon="&#x43;"></span>
-									Church Leader Resources
+									<span class="tab-label">Church Leader Resources</span>
 								</a>
 							</li>
 						</ul>
@@ -132,6 +133,10 @@ get_header(); ?>
 					</div>
 					<div class="regular-tabs group">
 						<ul class="nav nav-tabs regular-tab-nav">
+							<a href = "#" class="tabs-toggle">
+								<span aria-hidden="true" data-icon="&#x6f;"></span>
+								<span class="assistive-text">Show Tabs</span>
+							</a>
 							<li class="active"><a href="#new" data-toggle="tab">Newest Release</a></li>
 							<li><a href="#popular" data-toggle="tab">Most Popular</a></li>
 							<li><a href="#special" data-toggle="tab">Special Offer</a></li>

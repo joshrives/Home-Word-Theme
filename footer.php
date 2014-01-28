@@ -99,19 +99,19 @@
 				<div class="content-wrap group">
 					<ul>
 						<li>
-							<a href = "#">Home</a>
+							<a href = "<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
 						</li>
 						<li>
-							<a href = "#">Families</a>
+							<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/families/?cat=families">Families</a>
 						</li>
 						<li>
-							<a href = "#">Church Leaders</a>
+							<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/church-leaders/?cat=church">Church Leaders</a>
 						</li>
 						<li>
-							<a href = "#">About</a>
+							<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/about">About</a>
 						</li>
 						<li>
-							<a href = "#">Store</a>
+							<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/shop">Store</a>
 						</li>
 						<li>
 							<a href = "#">Donate</a>
@@ -126,7 +126,7 @@
 	</div><!-- site-content -->
 </div><!--site-->
 <?php wp_footer(); ?>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/_js/production.min.js"></script>
 <script src="//localhost:35729/livereload.js"></script>
 </body>

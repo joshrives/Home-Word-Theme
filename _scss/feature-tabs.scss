@@ -18,7 +18,7 @@
 			color: #a3a29e;
 			text-transform: lowercase;
 			letter-spacing: 1px;
-			padding: 1em;
+			padding: 1em 0;
 		}
 	}
 	.active {
@@ -75,8 +75,17 @@
 	[data-icon] {
 		display: block;
 		text-transform: none;
-		font-size: 1.25em;
+		font-size: 1.5em;
 		margin-bottom: 0.25em;
+		@include bp(44) {
+			font-size: 1.25em;
+		}
+	}
+	.tab-label {
+		display: none;
+		@include bp(44) {
+			display: block;
+		}
 	}
 }
 .radio-tab {
@@ -98,17 +107,33 @@
 	}
 }
 .tab-column {
-	float: left;
-	width: 33.3333%;
-	padding: 1em 1em 0 0;
+	padding: 1em 0 0;
+	@include bp(44) {
+		float: left;
+		width: 50%;
+		padding: 1em 1em 0 0;
+	}
+	@include bp(50) {
+		width: 33.3333%;
+	}
 	&.double {
-		width: 66.6666%;
+		width: 100%;
+		@include bp(50) {
+			width: 66.6666%;
+		}
+
 	}
 	&.image {
+		display: none;
 		padding: 0;
+		@include bp(50) {
+			display: block;
+		}
 	}
 	&.right-tab {
-		padding: 1em 0 0 1em;
+		@include bp(44) {
+			padding: 1em 0 0 1em;
+		}
 	}
 }
 .active {

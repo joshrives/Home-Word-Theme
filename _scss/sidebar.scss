@@ -1,10 +1,13 @@
 .sidebar-section {
-	float: left;
-	width: 20.5em;
 	background: $sidebar;
 	h5 {
 		text-transform: uppercase;
 		color: #aaa;
+	}
+	@include bp(50) {
+		float: left;
+		max-width: 20.5em;
+		width: 32.8%;
 	}
 }
 .sidebar-nav {
@@ -35,4 +38,52 @@
 }
 .sidebar-content {
 	padding: 0 1em;
+}
+.store-sidebar {
+	padding: 2em;
+	h3 {
+		font-size: 1em;
+		margin-bottom: 0.25em;
+		&:first-of-type {
+			margin-top: 0;
+		}
+	}
+	ul {
+		list-style: none;
+		margin: 0 0 2em;
+		padding: 0;
+		a {
+			color: #87837d;
+			font-size: 0.875em;
+		}
+	}
+}
+.product-search {
+	position: relative;
+	font-size: 0.75em;
+	margin-bottom: 2em;
+}
+.product-search-label {
+	font-weight: bold;
+}
+.product-search-input {
+	background: none;
+	border: 1px solid $tan;
+	padding: 0.5em 0.5em 0.5em 1.75em;
+	color: $tan;
+	display: block;
+	width: 100%;
+}
+.product-search-submit {
+	position: absolute;
+	left: 0.5em;
+	top: 0.75em;
+	background: none;
+	border: 0;
+	text-indent: -999px;
+	display: block;
+	width: 0.875em;
+	height: 0.875em;
+	background: url(_i/search.png) center center no-repeat;
+	background-size: 0.8125em;
 }

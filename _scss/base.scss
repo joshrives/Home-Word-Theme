@@ -132,18 +132,26 @@ h1,h2,h3,h4,h5,h6 {
 	> li {
 		display: block;
 		margin-bottom: 1em;
-		float: left;
-		width: 30%;
-		margin: 0 5% 0 0;
-		&:last-child, &:nth-child(3n) {
-			margin: 0;
+
+	}
+	@include bp(44) {
+		> li {
+			float: left;
+			width: 30%;
+			margin: 0 5% 0 0;
+			&:last-child, &:nth-child(3n) {
+				margin: 0;
+			}
 		}
 	}
 }
 .content-section {
-	float: left;
-	width: 42em;
 	padding: 2em;
+	@include bp(50) {
+		float: left;
+		max-width: 42em;
+		width: 67.2%;
+	}
 }
 
 @import "header";
@@ -157,3 +165,5 @@ h1,h2,h3,h4,h5,h6 {
 @import "article";
 @import "archives";
 @import "popup";
+@import "store";
+@import "cart";

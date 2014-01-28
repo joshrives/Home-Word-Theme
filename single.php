@@ -24,7 +24,7 @@ get_header(); ?>
 				}
 			?>
 			<?php //echo get_the_term_list( $post->ID, 'area', '', ', ', '' ); ?>
-			<div class="general-content group <?php echo $cat; ?>-content">
+			<div class="general-content group <?php if ($cat != NULL) {echo $cat.'-content';} ?>">
 				<div class="content-section single">
 
 			<?php get_template_part( 'content', 'single' ); ?>

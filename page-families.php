@@ -41,7 +41,7 @@ get_header(); ?>
 
 								?>
 							</a>
-							<h3><?php the_title(); ?></h3>
+							<h3><a href = "<?php the_permalink(); ?>?cat=families"><?php the_title(); ?></a></h3>
 							<div class="metadata">Published <?php the_date(); ?> by <?php the_author(); ?></div>
 							<p><?php the_excerpt(); ?></p>
 							<a href = "<?php the_permalink(); ?>?cat=families" class="read-more">Continue Reading &raquo;</a>
@@ -63,7 +63,7 @@ get_header(); ?>
 
 									?>
 								</a>
-								<h3><?php the_title(); ?></h3>
+								<h3><a href = "<?php the_permalink(); ?>?cat=families"><?php the_title(); ?></a></h3>
 								<div class="metadata">Published <?php the_date(); ?> by <?php the_author(); ?></div>
 								<p><?php the_excerpt(); ?></p>
 								<a href = "<?php the_permalink(); ?>?cat=families" class="read-more">Continue Reading &raquo;</a>
@@ -84,7 +84,7 @@ get_header(); ?>
 
 									?>
 								</a>
-								<h3><?php the_title(); ?></h3>
+								<h3><a href = "<?php the_permalink(); ?>?cat=families"><?php the_title(); ?></a></h3>
 								<div class="metadata">Published <?php the_date(); ?> by <?php the_author(); ?></div>
 								<p><?php the_excerpt(); ?></p>
 								<a href = "<?php the_permalink(); ?>?cat=families" class="read-more">Continue Reading &raquo;</a>

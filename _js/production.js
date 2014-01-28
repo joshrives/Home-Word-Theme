@@ -431,13 +431,24 @@ function toggleNav() {
 		jQuery('body').toggleClass('show-nav');
 		return false;
 	});
+}
+function showTabs() {
+	jQuery('.tabs-toggle').click(function() {
+		jQuery(this).siblings('li:not(.active)').slideToggle();
+		jQuery(this).parent().toggleClass('shown');
+		return false;
+	});
 
 }
 
 jQuery(document).ready(function() {
+	var vw = jQuery(window).width();
 	navDropdown();
-	sidebarHeight();
 	toggleNav();
+	showTabs();
+	if (vw >800) {
+		sidebarHeight();
+	}
 });
 
 jQuery(window).resize(function() {

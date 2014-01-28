@@ -82,10 +82,10 @@ $_SESSION['cat'] = $_GET['cat'];
 						<?php wp_nav_menu( array( 'theme_location' => 'church', 'menu_class' => 'subnav', 'container' => false) ); ?>
 					</li><!--
 					--><li>
-						<a href = "#">Store</a>
+						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/shop">Store</a>
 					</li><!--
 					--><li>
-						<a href = "#">About</a>
+						<a href = "<?php echo esc_url( home_url( '/' ) ); ?>/about">About</a>
 					</li>
 				</ul>
 				<?php //wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
