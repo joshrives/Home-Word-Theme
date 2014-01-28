@@ -146,3 +146,12 @@
 .powerpress_link_pinw {
 	@include button($radio, #fff);
 }
+.nav-links {
+	padding: 0 2em;
+}
+.nav-previous {
+	float: left;
+}
+.nav-next {
+	float: right;
+}

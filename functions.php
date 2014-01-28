@@ -396,6 +396,7 @@ function custom_override_default_address_fields( $address_fields ) {
 
      return $address_fields;
 }
+
 /*Custom Post Type Archive*/
 function namespace_add_custom_types( $query ) {
   if( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
@@ -406,3 +407,4 @@ function namespace_add_custom_types( $query ) {
 	}
 }
 //add_filter( 'pre_get_posts', 'namespace_add_custom_types' );
+/*Gravity Forms*/

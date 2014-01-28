@@ -1,36 +1,36 @@
 @mixin bp($point) {
-     @if $point == 80 {
-          @media (min-width: 80em) { @content; }
-     }
-     @else if $point == 62.5 {
-          @media (min-width: 62.5em) { @content; }
-     }
-     @else if $point == 50 {
-          @media (min-width: 50em) { @content; }
-     }
-     @else if $point == 44 {
-          @media (min-width: 44em) { @content; }
-     }
-     @else if $point == 30 {
-          @media (min-width: 30em) { @content; }
-     }
-     @else if $point == 25 {
-          @media (min-width: 25em) { @content; }
-     }
+	@if $point == 80 {
+		@media (min-width: 80em) { @content; }
+	}
+	@else if $point == 62.5 {
+		@media (min-width: 62.5em) { @content; }
+	}
+	@else if $point == 50 {
+		@media (min-width: 50em) { @content; }
+	}
+	@else if $point == 44 {
+		@media (min-width: 44em) { @content; }
+	}
+	@else if $point == 30 {
+		@media (min-width: 30em) { @content; }
+	}
+	@else if $point == 25 {
+		@media (min-width: 25em) { @content; }
+	}
 }
 
 
 /*Clearfix*/
 .group:before,
 .group:after {
-    content:"";
-    display:table;
+	content:"";
+	display:table;
 }
 .group:after {
-    clear:both;
+	clear:both;
 }
 .group {
-    zoom:1;
+	zoom:1;
 }
 /*Box-sizing*/
 * {
@@ -41,49 +41,49 @@
 /*Responsive Images*/
 img {
 	max-width: 100%;
-     height: auto;
+	height: auto;
 }
 .assistive-text {
-     position: absolute;
-     top: -9999px;
-     left: -9999px;
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
 }
 /* Alignment */
 .alignleft {
-     display: inline;
-     float: left;
-     margin-right: 1.5em;
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
 }
 .alignright {
-     display: inline;
-     float: right;
-     margin-left: 1.5em;
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
 }
 .aligncenter {
-     clear: both;
-     display: block;
-     margin: 0 auto;
+	clear: both;
+	display: block;
+	margin: 0 auto;
 }
 
 @mixin button($back-color, $text-color) {
-     display: inline-block;
-     padding: 0.65em 1.5em;
-     font-size: 0.875em;
-     font-weight: bold;
-     text-transform: uppercase;
-     color: $text-color;
-     text-shadow: 1px 1px transparentize(darken($back-color, 17), .55);
-     letter-spacing: 1px;
-     background-color: $back-color;
-     background-image: -webkit-gradient(linear, left top, left bottom, from(lighten($back-color, 15)), to($back-color));
-     background-image: -webkit-linear-gradient(top, lighten($back-color, 15), $back-color);
-     background-image:    -moz-linear-gradient(top, lighten($back-color, 15), $back-color);
-     background-image:      -o-linear-gradient(top, lighten($back-color, 15), $back-color);
-     background-image:         linear-gradient(to bottom, lighten($back-color, 15), $back-color);
-     border: 1px solid adjust_hue(saturate(darken($back-color, 14), 2), 1);
-     border-radius: 0.25em;
-     &:hover {
-          color: $text-color;
-          background: desaturate(lighten($back-color, 0), 2);
-     }
+	display: inline-block;
+	padding: 0.65em 1.5em;
+	font-size: 0.875em;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: $text-color;
+	text-shadow: 1px 1px transparentize(darken($back-color, 17), .55);
+	letter-spacing: 1px;
+	background-color: $back-color;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(lighten($back-color, 15)), to($back-color));
+	background-image: -webkit-linear-gradient(top, lighten($back-color, 15), $back-color);
+	background-image:    -moz-linear-gradient(top, lighten($back-color, 15), $back-color);
+	background-image:      -o-linear-gradient(top, lighten($back-color, 15), $back-color);
+	background-image:         linear-gradient(to bottom, lighten($back-color, 15), $back-color);
+	border: 1px solid adjust_hue(saturate(darken($back-color, 14), 2), 1);
+	border-radius: 0.25em;
+	&:hover {
+		color: $text-color;
+		background: desaturate(lighten($back-color, 0), 2);
+	}
 }

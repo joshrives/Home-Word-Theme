@@ -1,0 +1,163 @@
+.gform_fields {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	li {
+		zoom:1;
+		&:before,
+		&:after {
+			content:"";
+			display:table;
+		}
+		&:after {
+			clear:both;
+		}
+	}
+}
+
+.donate-icon {
+	background: $blue-back;
+	color: #fff;
+	font-size: 2em;
+	text-align: center;
+	display: block;
+	line-height: 1;
+	padding-top: 1em;
+}
+.donate-amounts {
+	background: $blue-back;
+	color: #fff;
+	padding-bottom: 1em;
+	.gfield_label {
+		float: none;
+		display: block;
+		width: auto;
+	}
+	.ginput_container {
+		float: none;
+		width: auto;
+	}
+	> label {
+		display:block;
+		text-align: center;
+		font-weight: bold;
+		text-transform: uppercase;
+		margin-bottom: 0.5em;
+	}
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		text-align: center;
+	}
+	li {
+		display: inline-block;
+		margin: 0 1em;
+	}
+	input[type="radio"] {
+		position: absolute;
+		left: -9999px;
+	}
+	.gfield_radio {
+		label {
+			display: inline-block;
+			background: $blue;
+			color: #fff;
+			padding: 0.75em 1em;
+			border-radius: 0.25em;
+			font-weight: bold;
+			text-align: center;
+			line-height: 1;
+
+			&:hover {
+				background: #fff;
+				color: $blue-back;
+			}
+		}
+
+		input[type="radio"]:checked + label {
+			background: #fff;
+			color: $blue-back;
+		}
+	}
+}
+.donate-amount-input {
+	background: $blue-back;
+	color: #fff;
+	text-align: center;
+	padding-bottom: 1em;
+	.gfield_label {
+		float: none;
+		display: block;
+		width: auto;
+	}
+	.ginput_container {
+		float: none;
+		width: auto;
+	}
+	label {
+		display:block;
+		font-weight: bold;
+		text-transform: uppercase;
+		margin-bottom: 0.5em;
+		text-align: center;
+	}
+	input {
+		padding:  0.5em 1em;
+		border: 0;
+		border-radius: 0.25em;
+	}
+}
+.gform_body {
+	input {
+		border: 1px solid #ddd;
+		border-radius: 0.25em;
+		padding: 0.5em 1em;
+	}
+}
+.donate-divider,
+.donate-name,
+.donate-email,
+.donate-address,
+.donate-payment {
+	max-width: 45em;
+	margin: 0 auto 1em;
+	width: 96%;
+}
+.gfield_label {
+	float: left;
+	display: block;
+	width: 25%;
+	font-weight: bold;
+	text-align: right;
+	padding-right: 1.5em;
+}
+.ginput_container {
+	float: left;
+	width: 75%;
+	label {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		font-size: 0.75em;
+	}
+}
+.ginput_left {
+	display: inline-block;
+	margin: 0 1em 1.5em 0;
+	position: relative;
+}
+.ginput_right {
+	display: inline-block;
+	position: relative;
+	margin-bottom: 1.5em;
+}
+.ginput_full {
+	display: block;
+	width: 100%;
+	margin-bottom: 1.5em;
+	position: relative;
+	input {
+		width: 100%;
+	}
+}
